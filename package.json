@@ -1,7 +1,7 @@
 {
-    "name": "ghost-starter-theme",
-    "description": "A starter theme for Ghost theme development",
-    "demo": "https://starter.ghost.io",
+    "name": "ghost-theme-wlog",
+    "description": "Ghost based custom theme",
+    "demo": "https://w-log.dev",
     "version": "2.0.1",
     "engines": {
         "ghost": ">=5.0.0"
@@ -13,14 +13,15 @@
     "scripts": {
         "dev": "rollup -c --environment BUILD:development -w",
         "build": "rollup -c --environment BUILD:production",
+        "docker:dev": "concurrently --names 'DOCKER,ROLLUP' --prefix-colors 'yellow,magenta' --kill-others \"docker-compose up\" \"npm run dev\"",
         "zip": "npm run build && bestzip $npm_package_name.zip assets/* partials/* members/* *.hbs package.json",
         "test": "npx gscan .",
         "pretest": "npm run build"
     },
     "author": {
-        "name": "Ghost Foundation",
-        "email": "hello@ghost.org",
-        "url": "https://ghost.org"
+        "name": "Taewoong Kim",
+        "email": "taewoong431@gmail.com",
+        "url": "https://w-log.dev"
     },
     "gpm": {
         "type": "theme",
@@ -36,10 +37,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/TryGhost/Starter.git"
+        "url": "https://github.com/w-log/ghost-theme-wlog.git"
     },
-    "bugs": "https://github.com/TryGhost/Starter/issues",
-    "contributors": "https://github.com/TryGhost/Starter/graphs/contributors",
+    "bugs": "https://github.com/w-log/ghost-theme-wlog/issues",
+    "contributors": "https://github.com/w-log/ghost-theme-wlog/graphs/contributors",
     "devDependencies": {
         "@babel/core": "^7.21.0",
         "@babel/preset-env": "^7.20.2",
@@ -48,9 +49,11 @@
         "@rollup/plugin-node-resolve": "^15.0.1",
         "@rollup/plugin-terser": "^0.4.0",
         "bestzip": "^2.2.1",
+        "concurrently": "^8.2.2",
         "postcss": "^8.4.24",
         "postcss-import": "^15.1.0",
         "postcss-preset-env": "^8.0.1",
+        "prettier": "^3.1.1",
         "rollup": "^3.18.0",
         "rollup-plugin-livereload": "^2.0.5",
         "rollup-plugin-postcss": "^4.0.2"
@@ -82,5 +85,9 @@
             }
         }
     },
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+        "swiper": "^11.0.5",
+        "swup": "^4.5.0"
+    }
 }

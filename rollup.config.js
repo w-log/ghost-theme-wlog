@@ -17,35 +17,44 @@ import atImport from 'postcss-import';
 import postcssPresetEnv from 'postcss-preset-env';
 
 // Development: Enables a livereload server that watches for changes to CSS, JS, and Handlbars files
-import { resolve } from "path";
+import { resolve } from 'path';
 import livereload from 'rollup-plugin-livereload';
 
 // Rollup configuration
 export default defineConfig({
     input: 'assets/js/index.js',
     output: {
-        dir: "assets/built",
+        dir: 'assets/built',
         sourcemap: true,
-        format: 'iife',
-        plugins: [terser()]
+        format: 'cjs',
+        entryFileName: '[name].[ext]',
+        plugins: [terser()],
+        manualChunks(id) {
+            if (id.includes('node_modules')) {
+                return 'vendor';
+            }
+
+            if (id.includes('post')) {
+                return 'post';
+            }
+        },
+        chunkFileNames: '[name].js',
     },
     plugins: [
-        commonjs(), 
-        nodeResolve(), 
+        commonjs(),
+        nodeResolve(),
         babel({ babelHelpers: 'bundled' }),
         postcss({
             extract: true,
             sourceMap: true,
-            plugins: [
-                atImport(),
-                postcssPresetEnv({})
-            ], 
+            plugins: [atImport(), postcssPresetEnv({})],
             minimize: true,
         }),
-        process.env.BUILD !== "production" && livereload({
-            watch: resolve('.'),
-            extraExts: ['hbs'],
-            exclusions: [resolve('node_modules')]
-        }),
-    ]
-})
+        process.env.BUILD !== 'production' &&
+            livereload({
+                watch: resolve('.'),
+                extraExts: ['hbs', 'js', 'css'],
+                exclusions: [resolve('node_modules')],
+            }),
+    ],
+});

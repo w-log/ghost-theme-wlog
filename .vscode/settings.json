@@ -3,6 +3,7 @@
         "**/node_modules": true,
         "assets/built/*.js": true,
         "assets/built/*.css": true,
-        "assets/built/*.map": true,
-    }
+        "assets/built/*.map": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

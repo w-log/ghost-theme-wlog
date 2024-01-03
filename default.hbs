@@ -1,16 +1,48 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}">
 <head>
-
+    {{!-- Document Settings --}}
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{asset "built/index.css"}}" />
-    <script src="{{asset "built/index.js"}}" defer></script>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {{!-- Base Meta --}}
     <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{!-- Preconnect google fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="//www.instagram.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&amp;display=swap" rel="stylesheet" />
+    {{!-- Preload assets --}}
+    {{! prettier-ignore }}
+    <link rel="preload" href="{{asset "built/index.css"}}" as="style" >
+    <link rel="preload" href="{{asset "built/vendor.js"}}" as="script" />
+    <link rel="preload" href="{{asset "built/index.js"}}" as="script" />
 
+
+    {{!-- This #block helper will try to preload page-specific assets --}}
+    {{{block "preload"}}}
+
+    {{!-- Styles & Scripts --}}
+    <style>
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="{{asset "built/index.css"}}" media="screen" />
+
+    {{!-- This #block helper will inject a stylesheet for a specific page --}}
+    {{{block "styles"}}}
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
     {{ghost_head}}
-    {{!-- Outputs important meta data and settings, should always be in <head> --}}
+
+
+    {{!-- These variables are used to make the search form work --}}
+    <script>
+      // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+      var ghostHost = "{{@site.url}}"
+      // @license-end
+    </script>
+
 
 </head>
 <body class="{{body_class}}">
@@ -18,7 +50,6 @@
 
 <header id="gh-head" class="gh-head">
     <nav class="gh-head-inner gh-container">
-
         <div class="gh-head-brand">
             <a class="gh-head-logo" href="{{@site.url}}">
                 {{#if @site.logo}}
@@ -74,6 +105,15 @@
 {{!-- <foot> --}}
 {{ghost_foot}}
 {{!-- Outputs important scripts - should always be included before closing body tag --}}
+<script defer src="{{asset "js/manifest.js"}}"></script>
+    <script defer src="{{asset "js/vendor.js"}}"></script>
+    <script defer src="{{asset "js/app.js"}}"></script>
+    <script async src="//www.instagram.com/embed.js"></script>
+<script src="{{asset "built/index.js"}}" defer></script>
+
+{{!-- This #block helper will inject a script for a specific page --}}
+{{{block "scripts"}}}
+
 
 </body>
 </html>
