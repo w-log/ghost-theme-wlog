@@ -1,12 +1,9 @@
 // JavaScript files are compiled and minified during the build process to the assets/built folder. See available scripts in the package.json file.
 
 // Import CSS
-import '../css/index.css';
+import '../css/app.css';
 
 import Swiper from 'swiper';
-
-// append Script
-import './post'; //post.js
 
 // Import JS
 import menuOpen from './utils/menuOpen';
@@ -17,7 +14,7 @@ menuOpen();
 infiniteScroll();
 
 const recentSwiper = new Swiper('.js-recent-slider', {
-    modules: [FreeMode, A11y],
+    modules: [],
     freeMode: true,
     slidesPerView: 'auto',
     a11y: true,

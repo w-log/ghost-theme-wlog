@@ -22,31 +22,36 @@ import livereload from 'rollup-plugin-livereload';
 
 // Rollup configuration
 export default defineConfig({
-    input: 'assets/js/index.js',
+    input: ['assets/js/app.js'],
     output: {
         dir: 'assets/built',
         sourcemap: true,
-        format: 'cjs',
-        entryFileName: '[name].[ext]',
+        format: 'iife',
         plugins: [terser()],
-        manualChunks(id) {
-            if (id.includes('node_modules')) {
-                return 'vendor';
-            }
-
-            if (id.includes('post')) {
-                return 'post';
-            }
-        },
-        chunkFileNames: '[name].js',
+        // chunkFileNames: '[name].js',
+        // manualChunks(id) {
+        //     switch (true) {
+        //         case id.includes('node_modules'):
+        //             return 'vendor';
+        //         case id.includes('post'):
+        //             return 'post';
+        //     }
+        // },
+        // experimentalCodeSplitting: true,
+        assetFileNames: '[name][extname]',
     },
     plugins: [
-        commonjs(),
-        nodeResolve(),
-        babel({ babelHelpers: 'bundled' }),
+        commonjs({
+            include: ['node_modules/**'],
+        }),
+        nodeResolve({
+            extensions: ['.js', '.css'],
+        }),
+        babel({ include: ['assets/js/*'], babelHelpers: 'runtime' }),
         postcss({
             extract: true,
             sourceMap: true,
+            name: 'app.css',
             plugins: [atImport(), postcssPresetEnv({})],
             minimize: true,
         }),

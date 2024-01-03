@@ -9,23 +9,21 @@ production stylesheet in assets/built/screen.css using: npm run dev
 /* ---------------------------------------------------------- */
 
 /* Base components */
-@import "vars.css";
-@import "components/global.css";
-@import "components/forms.css";
-@import "components/buttons.css";
+@import 'vars.css';
+@import 'components/global.css';
+@import 'components/forms.css';
+@import 'components/buttons.css';
 
 /* Ghost components */
-@import "ghost/header.css";
-@import "ghost/content.css";
-@import "ghost/readmore.css";
-@import "ghost/members.css";
-@import "ghost/errors.css";
-@import "ghost/footer.css";
-@import "ghost/badge.css";
-@import "ghost/pagination.css";
-@import "ghost/comments.css";
-
-
+@import 'ghost/header.css';
+@import 'ghost/content.css';
+@import 'ghost/readmore.css';
+@import 'ghost/members.css';
+@import 'ghost/errors.css';
+@import 'ghost/footer.css';
+@import 'ghost/badge.css';
+@import 'ghost/pagination.css';
+@import 'ghost/comments.css';
 
 /* Main - Your styles here! Edit below
 /* ---------------------------------------------------------- */
@@ -113,7 +111,6 @@ html,
     aspect-ratio: 16 / 9;
 }
 
-
 .gh-card-meta {
     display: block;
     margin: 0 0 1rem;
@@ -144,7 +141,6 @@ html,
     opacity: 0.75;
 }
 
-
 /* Page
 /* ---------------------------------------------------------- */
 
@@ -172,7 +168,6 @@ html,
         font-size: 1.6rem;
     }
 }
-
 
 /* Post
 /* ---------------------------------------------------------- */
@@ -210,7 +205,6 @@ html,
     margin: 2rem 0;
 }
 
-
 /* Author Archive
 /* ---------------------------------------------------------- */
 
@@ -243,11 +237,11 @@ html,
 
 .gh-author-links a + a:before {
     display: block;
-    content: "";
+    content: '';
     margin: 0 1.25vmin 0 0;
     height: 1em;
     width: 1px;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     transform: rotate(20deg);
 }
 
