@@ -1,5 +1,5 @@
-a.gh-powered,
-a.gh-powered:hover {
+a.wl-powered,
+a.wl-powered:hover {
     display: inline-flex;
     align-items: center;
     padding: 6px 9px 6px 6px;
@@ -21,7 +21,7 @@ a.gh-powered:hover {
     cursor: pointer;
 }
 
-a.gh-powered svg {
+a.wl-powered svg {
     height: 16px;
     width: 16px;
     margin: 0 6px 0 0;

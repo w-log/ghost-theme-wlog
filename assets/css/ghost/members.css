@@ -1,31 +1,31 @@
 /* Members Auth Template
 /* ---------------------------------------------------------- */
 
-.gh-auth-form {
+.wl-auth-form {
     width: 100%;
     max-width: 600px;
     margin: 0 auto 10vmin;
     text-align: center;
 }
 
-.gh-auth-title {
+.wl-auth-title {
     margin: 0 0 0.1em;
     font-size: 4.2rem;
 }
 
-.gh-auth-form p {
+.wl-auth-form p {
     margin: 10px 0 4vmin 0;
     font-size: 1.7rem;
-    color: rgba(0,0,0,0.6)
+    color: rgba(0, 0, 0, 0.6);
 }
 
-.gh-auth-form p small {
+.wl-auth-form p small {
     display: inline-block;
     margin: 15px 0 0 0;
     font-size: 1.4rem;
 }
 
-.gh-auth-box {
+.wl-auth-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -33,16 +33,16 @@
     margin: 0 auto;
 }
 
-.gh-auth-box .gh-button {
+.wl-auth-box .wl-button {
     margin-left: 10px;
 }
 
 @media (max-width: 600px) {
-    .gh-auth-box {
+    .wl-auth-box {
         flex-direction: column;
         max-width: 400px;
     }
-    .gh-auth-box .gh-button {
+    .wl-auth-box .wl-button {
         width: 100%;
         margin: 15px 0 0 0;
     }
@@ -51,13 +51,13 @@
 /* Members Forms
 /* ---------------------------------------------------------- */
 
-form[data-members-form] .gh-button-loader,
+form[data-members-form] .wl-button-loader,
 form[data-members-form] .message-success,
 form[data-members-form] .message-error {
     display: none;
 }
 
-.gh-button-content {
+.wl-button-content {
     min-width: 100px;
 }
 
@@ -103,7 +103,7 @@ form[data-members-form].error .message-error {
     box-shadow: var(--color-error) 0 0 0 1px;
 }
 
-form[data-members-form] .gh-button {
+form[data-members-form] .wl-button {
     position: relative;
     min-width: 120px;
 }
@@ -111,12 +111,12 @@ form[data-members-form] .gh-button {
 /*-- Loading --*/
 
 /* Hide button text */
-form[data-members-form].loading .gh-button-content {
+form[data-members-form].loading .wl-button-content {
     visibility: hidden;
 }
 
 /* Show loading spinner */
-form[data-members-form].loading .gh-button-loader {
+form[data-members-form].loading .wl-button-loader {
     display: inline-block;
     position: absolute;
     left: 50%;
@@ -125,9 +125,9 @@ form[data-members-form].loading .gh-button-loader {
     transform: scale(0.6);
 }
 
-.gh-button-loader svg path,
-.gh-button-loader svg rect{
-  fill: #fff;
+.wl-button-loader svg path,
+.wl-button-loader svg rect {
+    fill: #fff;
 }
 
 /*-- Show success message on success --*/

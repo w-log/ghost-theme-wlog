@@ -1,0 +1,34 @@
+<header id="wl-head" class="wl-head">
+    <nav class="wl-head-inner wl-container">
+        <div class="wl-head-brand">
+            <a class="wl-head-logo" href="{{@site.url}}">
+                {{#if @site.logo}}
+                    <img src="{{@site.logo}}" alt="{{@site.title}}" />
+                {{else}}
+                    {{@site.title}}
+                {{/if}}
+            </a>
+            <a class="wl-burger" role="button" aria-label="menu">
+                <div class="wl-burger-box">
+                    <div class="wl-burger-inner"></div>
+                </div>
+            </a>
+        </div>
+        <div class="wl-head-menu">
+            {{navigation}}
+            <div class="wl-head-actions">
+                <div class="wl-head-actions-list">
+                    {{search}}
+                    {{#if @site.members_enabled}}
+                        {{^if @member}}
+                        <a class="wl-button" href="{{@site.signup_url}}">Subscribe</a>
+                        {{else}}
+                        <a class="wl-button" href="#/portal/account">Account</a>
+                        {{/if}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+
+    </nav>
+</header>

@@ -15,30 +15,30 @@
 </head>
 
 <body class="{{body_class}}">
-<div class="gh-viewport">
+<div class="wl-viewport">
 
-<header id="gh-head" class="gh-head">
-    <nav class="gh-head-inner gh-container">
+<header id="wl-head" class="wl-head">
+    <nav class="wl-head-inner wl-container">
 
-        <div class="gh-head-brand">
-            <a class="gh-head-logo" href="{{@site.url}}">
+        <div class="wl-head-brand">
+            <a class="wl-head-logo" href="{{@site.url}}">
                 {{#if @site.logo}}
                     <img src="{{@site.logo}}" alt="{{@site.title}}" />
                 {{else}}
                     {{@site.title}}
                 {{/if}}
             </a>
-            <a class="gh-burger" role="button">
-                <div class="gh-burger-box">
-                    <div class="gh-burger-inner"></div>
+            <a class="wl-burger" role="button">
+                <div class="wl-burger-box">
+                    <div class="wl-burger-inner"></div>
                 </div>
             </a>
         </div>
-        <div class="gh-head-menu">
+        <div class="wl-head-menu">
             {{navigation}}
         </div>
-        <div class="gh-head-actions">
-            <div class="gh-head-actions-list">
+        <div class="wl-head-actions">
+            <div class="wl-head-actions-list">
                 {{#if @site.facebook}}
                 <a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
                 {{/if}}
@@ -51,28 +51,28 @@
     </nav>
 </header>
 
-<main class="gh-main">
+<main class="wl-main">
 
-    <section class="gh-page gh-error">
-        <div class="gh-container">
+    <section class="wl-page wl-error">
+        <div class="wl-container">
 
-            <section class="gh-error-content">
+            <section class="wl-error-content">
 
-                <h1 class="gh-error-code">{{statusCode}}</h1>
-                <p class="gh-error-description">{{message}}</p>
-                <p class="gh-error-link"><a href="{{@site.url}}">Go to the front page →</a></p>
+                <h1 class="wl-error-code">{{statusCode}}</h1>
+                <p class="wl-error-description">{{message}}</p>
+                <p class="wl-error-link"><a href="{{@site.url}}">Go to the front page →</a></p>
 
                 {{#if errorDetails}}
-                <section class="gh-error-stack">
+                <section class="wl-error-stack">
                     <h4>Theme errors:</h4>
-                    <ul class="gh-error-stack-list">
+                    <ul class="wl-error-stack-list">
                         {{#foreach errorDetails}}
                         <li>
-                            <h5 class="gh-error-stack-function">{{{rule}}}</h5>
+                            <h5 class="wl-error-stack-function">{{{rule}}}</h5>
 
                             {{#foreach failures}}
-                            <span class="gh-error-stack-file"><strong>Ref:</strong> {{ref}}</span><br>
-                            <span class="gh-error-stack-file"><strong>Message:</strong> {{message}}</span>
+                            <span class="wl-error-stack-file"><strong>Ref:</strong> {{ref}}</span><br>
+                            <span class="wl-error-stack-file"><strong>Message:</strong> {{message}}</span>
                             {{/foreach}}
                         </li>
                         {{/foreach}}
@@ -87,12 +87,12 @@
 
 </main>
 
-<footer class="gh-foot">
-    <div class="gh-container">
-        <div class="gh-foot-menu">
+<footer class="wl-foot">
+    <div class="wl-container">
+        <div class="wl-foot-menu">
             {{navigation type="secondary"}}
         </div>
-        <div class="gh-foot-meta">
+        <div class="wl-foot-meta">
             Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
         </div>
     </div>

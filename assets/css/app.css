@@ -29,77 +29,77 @@ production stylesheet in assets/built/screen.css using: npm run dev
 /* ---------------------------------------------------------- */
 
 html,
-.gh-viewport {
+.wl-viewport {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background: #ffffff;
 }
 
-.gh-main {
+.wl-main {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
 }
 
-.gh-page {
+.wl-page {
     padding: 0 4vmin;
 }
 
-.gh-article {
+.wl-article {
     padding: 8vmin 0;
 }
 
-.gh-postfeed {
+.wl-postfeed {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 4.8vmin 4vmin;
     padding: 8vmin 0;
 }
 
-.gh-postfeed > *:first-child {
+.wl-postfeed > *:first-child {
     grid-column: 1 / -1;
 }
 
-.gh-container {
+.wl-container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.gh-head-actions a:not(.gh-button) {
+.wl-head-actions a:not(.wl-button) {
     display: inline-flex;
     align-items: center;
     margin: 0;
     padding: 10px;
 }
 
-.gh-head-actions a svg {
+.wl-head-actions a svg {
     height: 1.8rem;
     fill: currentcolor;
 }
 
-.gh-head-actions a:first-child svg {
+.wl-head-actions a:first-child svg {
     margin-left: 20px;
 }
 
-.gh-head-actions a:last-child svg {
+.wl-head-actions a:last-child svg {
     height: 2rem;
 }
 
 /* Index
 /* ---------------------------------------------------------- */
 
-/* .gh-card:not(:first-child) {
+/* .wl-card:not(:first-child) {
     margin: 8vmin auto 0;
 } */
 
-.gh-card-link {
+.wl-card-link {
     display: flex;
     flex-direction: column;
 }
 
-.gh-card-image {
+.wl-card-image {
     width: 100%;
     /* max-height: 700px; */
     object-fit: cover;
@@ -107,11 +107,11 @@ html,
     aspect-ratio: 1 / 1;
 }
 
-.gh-card-image:first-of-type {
+.wl-card-image:first-of-type {
     aspect-ratio: 16 / 9;
 }
 
-.gh-card-meta {
+.wl-card-meta {
     display: block;
     margin: 0 0 1rem;
     font-size: 1.4rem;
@@ -121,19 +121,19 @@ html,
     opacity: 0.8;
 }
 
-.gh-card-content {
+.wl-card-content {
     max-width: 720px;
     margin: 0 auto;
     text-align: center;
     font-size: 1.6rem;
 }
 
-.gh-card-content p {
+.wl-card-content p {
     margin: 1.2rem 0;
     padding: 0 3vmin;
 }
 
-.gh-card-content > strong {
+.wl-card-content > strong {
     display: inline-block;
     padding: 1px 0;
     font-weight: 500;
@@ -144,17 +144,17 @@ html,
 /* Page
 /* ---------------------------------------------------------- */
 
-.gh-page-head {
+.wl-page-head {
     margin: 0 auto;
     padding: 8vmin 0 4vmin;
     text-align: center;
 }
 
-.gh-page-image {
+.wl-page-image {
     margin: 4vmin 0 0 0;
 }
 
-.gh-page-head > p {
+.wl-page-head > p {
     max-width: 720px;
     margin: 0.3em auto 0;
     padding: 0 6vmin;
@@ -164,7 +164,7 @@ html,
 }
 
 @media (max-width: 700px) {
-    .gh-page-head > p {
+    .wl-page-head > p {
         font-size: 1.6rem;
     }
 }
@@ -172,12 +172,12 @@ html,
 /* Post
 /* ---------------------------------------------------------- */
 
-.gh-header {
+.wl-header {
     padding: 0 0 8vmin 0;
     text-align: center;
 }
 
-.gh-post-meta {
+.wl-post-meta {
     display: block;
     margin: 0 0 1rem;
     font-size: 1.4rem;
@@ -186,29 +186,29 @@ html,
     opacity: 0.8;
 }
 
-.gh-excerpt {
+.wl-excerpt {
     margin: 1rem 0 0 0;
 }
 
-.gh-feature-image {
+.wl-feature-image {
     grid-column: wide-start / wide-end;
     width: 100%;
     margin: 8vmin 0 0;
 }
 
-.gh-feature-image img {
+.wl-feature-image img {
     margin-inline: auto;
     width: 100%;
 }
 
-.gh-post-footer {
+.wl-post-footer {
     margin: 2rem 0;
 }
 
 /* Author Archive
 /* ---------------------------------------------------------- */
 
-.gh-author-image {
+.wl-author-image {
     height: 12vmin;
     width: 12vmin;
     margin: 0 auto 1.5em;
@@ -217,25 +217,25 @@ html,
     object-fit: cover;
 }
 
-.gh-author-meta {
+.wl-author-meta {
     margin: 2vmin 0 0 0;
     font-size: 1.2em;
 }
 
-.gh-author-links {
+.wl-author-links {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.gh-author-links a {
+.wl-author-links a {
     position: relative;
     display: inline-flex;
     align-items: center;
     margin: 0 0.75vmin;
 }
 
-.gh-author-links a + a:before {
+.wl-author-links a + a:before {
     display: block;
     content: '';
     margin: 0 1.25vmin 0 0;
@@ -246,7 +246,7 @@ html,
 }
 
 @media (max-width: 700px) {
-    .gh-author-meta {
+    .wl-author-meta {
         font-size: 1.6rem;
     }
 }
