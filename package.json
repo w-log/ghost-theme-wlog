@@ -2,7 +2,7 @@
     "name": "ghost-theme-wlog",
     "description": "Ghost based custom theme",
     "demo": "https://w-log.dev",
-    "version": "2.0.1",
+    "version": "0.0.1",
     "engines": {
         "ghost": ">=5.0.0"
     },
@@ -27,7 +27,8 @@
         "type": "theme",
         "categories": [
             "Minimal",
-            "Magazine"
+            "Portfolio",
+            "Blog"
         ]
     },
     "keywords": [
@@ -64,7 +65,7 @@
     ],
     "config": {
         "card_assets": true,
-        "posts_per_page": 15,
+        "posts_per_page": 10,
         "image_sizes": {
             "xxs": {
                 "width": 30
@@ -83,6 +84,28 @@
             },
             "xl": {
                 "width": 2000
+            }
+        },
+        "custom": {
+            "email": {
+                "type": "text",
+                "group": "site-wide"
+            },
+            "github": {
+                "type": "text",
+                "group": "site-wide"
+            },
+            "instagram": {
+                "type": "text",
+                "group": "site-wide"
+            },
+            "main_title": {
+                "type": "text",
+                "group": "homepage"
+            },
+            "main_description": {
+                "type": "text",
+                "group": "homepage"
             }
         }
     },

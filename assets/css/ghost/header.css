@@ -1,15 +1,11 @@
 /* Global Header
 /* ---------------------------------------------------------- */
-
 .wl-head {
-    --header-height: 8rem;
     padding: 0 var(--spacing-6);
     font-size: 1.6rem;
     line-height: 1.3;
     background: inherit;
     height: var(--header-height);
-    background-color: var(--color-primary);
-    color: var(--color-secondary);
 }
 
 .wl-head a {

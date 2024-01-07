@@ -27,13 +27,13 @@ production stylesheet in assets/built/screen.css using: npm run dev
 
 /* Main - Your styles here! Edit below
 /* ---------------------------------------------------------- */
-
 html,
 .wl-viewport {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: #ffffff;
+    background: var(--color-primary);
+    color: var(--color-secondary);
 }
 
 .wl-main {
@@ -90,6 +90,25 @@ html,
 /* Index
 /* ---------------------------------------------------------- */
 
+.wl-main-section {
+    min-height: calc(100vh - var(--header-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: var(--header-height);
+}
+
+.wl-main-section-title {
+    font-size: 3.2rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+}
+
+.wl-main-section-description {
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+
 /* .wl-card:not(:first-child) {
     margin: 8vmin auto 0;
 } */
@@ -143,7 +162,6 @@ html,
 
 /* Page
 /* ---------------------------------------------------------- */
-
 .wl-page-head {
     margin: 0 auto;
     padding: 8vmin 0 4vmin;
@@ -207,7 +225,6 @@ html,
 
 /* Author Archive
 /* ---------------------------------------------------------- */
-
 .wl-author-image {
     height: 12vmin;
     width: 12vmin;
@@ -245,6 +262,25 @@ html,
     transform: rotate(20deg);
 }
 
+/** social icons */
+
+.wl-social {
+    display: flex;
+    margin: var(--spacing-3) calc(var(--spacing-2) * -1);
+    justify-content: center;
+}
+
+.wl-social > * {
+    margin: 0 var(--spacing-2);
+    display: inline-flex;
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.wl-social svg {
+    width: 100%;
+    height: 100%;
+}
 @media (max-width: 700px) {
     .wl-author-meta {
         font-size: 1.6rem;

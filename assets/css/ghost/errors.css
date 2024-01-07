@@ -6,27 +6,30 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding-bottom: 2vmin;
 }
 
 .wl-error-content {
+    max-width: 52rem;
     flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
 .wl-error-code {
     margin: 0;
-    font-size: 14vmin;
+    font-size: 10vmin;
 }
 
 .wl-error-description {
-    max-width: 600px;
     margin: 0 auto;
     padding: 0 2rem;
-    font-size: 4vmin;
+    font-size: 3vmin;
     line-height: 1.2em;
-    font-weight: 300;
-    opacity: 0.6;
 }
 
 .wl-error-link {
@@ -36,7 +39,6 @@
 }
 
 .wl-error-stack {
-    max-width: 600px;
     margin: 0 auto 0;
     padding: 8vmin 0;
     text-align: left;

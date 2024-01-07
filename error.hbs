@@ -1,108 +1,30 @@
-<!DOCTYPE html>
-<html lang="{{@site.locale}}">
-<head>
+{{!--
+This error template is used for all 404 errors, which might occur on your site.
+--}}
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{asset "built/index.css"}}" />
-    <script src="{{asset "built/index.js"}}" defer></script>
+{{!-- This block preloads specific assets for the 404 page --}}
+{{#contentFor "preload"}}
+  <link rel="preload" href="{{asset "css/404.css"}}" as="style" />
+{{/contentFor}}
 
-    <title>{{meta_title}}</title>
+{{!-- This block loads specific styles for the 404 page --}}
+{{#contentFor "styles"}}
+  <link rel="stylesheet" type="text/css" href="{{asset "css/404.css"}}" media="screen" />
+{{/contentFor}}
 
-    {{ghost_head}}
-    {{!-- Outputs important meta data and settings, should always be in <head> --}}
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
 
-</head>
+{{!-- Special header.hbs partial to generate the <header> tag --}}
 
-<body class="{{body_class}}">
-<div class="wl-viewport">
-
-<header id="wl-head" class="wl-head">
-    <nav class="wl-head-inner wl-container">
-
-        <div class="wl-head-brand">
-            <a class="wl-head-logo" href="{{@site.url}}">
-                {{#if @site.logo}}
-                    <img src="{{@site.logo}}" alt="{{@site.title}}" />
-                {{else}}
-                    {{@site.title}}
-                {{/if}}
-            </a>
-            <a class="wl-burger" role="button">
-                <div class="wl-burger-box">
-                    <div class="wl-burger-inner"></div>
-                </div>
-            </a>
-        </div>
-        <div class="wl-head-menu">
-            {{navigation}}
-        </div>
-        <div class="wl-head-actions">
-            <div class="wl-head-actions-list">
-                {{#if @site.facebook}}
-                <a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-                {{/if}}
-                {{#if @site.twitter}}
-                <a href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-                {{/if}}
-                <a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
-            </div>
-        </div>
-    </nav>
-</header>
-
-<main class="wl-main">
-
-    <section class="wl-page wl-error">
-        <div class="wl-container">
-
-            <section class="wl-error-content">
-
-                <h1 class="wl-error-code">{{statusCode}}</h1>
-                <p class="wl-error-description">{{message}}</p>
-                <p class="wl-error-link"><a href="{{@site.url}}">Go to the front page →</a></p>
-
-                {{#if errorDetails}}
-                <section class="wl-error-stack">
-                    <h4>Theme errors:</h4>
-                    <ul class="wl-error-stack-list">
-                        {{#foreach errorDetails}}
-                        <li>
-                            <h5 class="wl-error-stack-function">{{{rule}}}</h5>
-
-                            {{#foreach failures}}
-                            <span class="wl-error-stack-file"><strong>Ref:</strong> {{ref}}</span><br>
-                            <span class="wl-error-stack-file"><strong>Message:</strong> {{message}}</span>
-                            {{/foreach}}
-                        </li>
-                        {{/foreach}}
-                    </ul>
-                </section>
-                {{/if}}
-
-            </section>
-
-        </div>
-    </section>
-
+<main class="wl-error">
+  <section class="wl-error-content" data-animate="fade-up">
+    <h1 class="wl-error-code">404</h1>
+    <p class="wl-error-description">{{t "Page not found"}}</p>
+    <p class="wl-error-description">
+      {{t "Unfortunately the page you were looking for could not be found."}}
+    </p>
+    <a href="{{@site.url}}" class="wl-button wl-error-link">{{t "Go to the home page"}}</a>
+  </section>
 </main>
-
-<footer class="wl-foot">
-    <div class="wl-container">
-        <div class="wl-foot-menu">
-            {{navigation type="secondary"}}
-        </div>
-        <div class="wl-foot-meta">
-            Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-        </div>
-    </div>
-</footer>
-
-</div>
-
-{{!-- <foot> --}}
-{{ghost_foot}}
-{{!-- Outputs important scripts - should always be included before closing body tag --}}
-
-</body>
-</html>

@@ -27,17 +27,7 @@ export default defineConfig({
         dir: 'assets/built',
         sourcemap: true,
         format: 'iife',
-        plugins: [terser()],
-        // chunkFileNames: '[name].js',
-        // manualChunks(id) {
-        //     switch (true) {
-        //         case id.includes('node_modules'):
-        //             return 'vendor';
-        //         case id.includes('post'):
-        //             return 'post';
-        //     }
-        // },
-        // experimentalCodeSplitting: true,
+        plugins: process.env.BUILD !== 'production' ? [] : [terser()],
         assetFileNames: '[name][extname]',
     },
     plugins: [

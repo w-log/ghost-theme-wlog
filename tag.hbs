@@ -1,13 +1,9 @@
 {{!< default}}
-
 <div class="wl-page">
     <div class="wl-container">
-
         {{#tag}}
         <header class="wl-page-head">
-
             <h1>{{name}}</h1>
-
             <p>
                 {{#if description}}
                     {{description}}
@@ -19,17 +15,12 @@
             {{#if feature_image}}
                 <img class="wl-page-image" src="{{feature_image}}" alt="{{name}}" />
             {{/if}}
-
         </header>
         {{/tag}}
-
         <div class="wl-postfeed">
         {{#foreach posts}}
-
             {{> "card"}} {{!-- partials/card.hbs --}}
-
         {{/foreach}}
         </div>
-
     </div>
 </div>

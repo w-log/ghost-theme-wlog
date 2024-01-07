@@ -47,7 +47,7 @@ export default function infiniteScroll() {
                         getNextPage(link).then(({ posts, nextLink }) => {
                             posts.forEach((post) => {
                                 document
-                                    .querySelector('.gh-postfeed')
+                                    .querySelector('.wl-postfeed')
                                     .append(post);
                             });
 
@@ -59,6 +59,7 @@ export default function infiniteScroll() {
                                     ),
                                 );
                             } else {
+                                console.log('No more pages');
                                 observer.disconnect();
                             }
                         });

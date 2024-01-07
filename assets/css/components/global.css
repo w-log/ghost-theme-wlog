@@ -120,7 +120,7 @@ ul:not([class]) li + li {
 }
 
 a:not([class]) {
-    color: var(--color-primary);
+    color: inherit;
     text-decoration-skip-ink: auto;
 }
 

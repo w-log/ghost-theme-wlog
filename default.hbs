@@ -17,10 +17,11 @@
     <link rel="preload" href="{{asset "built/app.css"}}" as="style" >
     <link rel="preload" href="{{asset "built/vendor.js"}}" as="script" />
     <link rel="preload" href="{{asset "built/app.js"}}" as="script" />
-
-
     {{!-- This #block helper will try to preload page-specific assets --}}
     {{{block "preload"}}}
+
+
+
 
     {{!-- Global font Styles --}}
     <style>
@@ -138,22 +139,13 @@
     </script>
 </head>
 <body id class="{{body_class}}">
-    {{> "header"}}
     <div class="wl-viewport">
+        {{> "layout/header"}}
         <main class="wl-main">
             {{{body}}}
             {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
         </main>
-        <footer class="wl-foot">
-            <div class="wl-container">
-                <div class="wl-foot-menu">
-                    {{navigation type="secondary"}}
-                </div>
-                <div class="wl-foot-meta">
-                    Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-                </div>
-            </div>
-        </footer>
+        {{> "layout/footer"}}
     </div>
     {{!-- <foot> --}}
     {{ghost_foot}}

@@ -1,15 +1,15 @@
 {{!< default}}
 <div class="wl-page">
     <div class="wl-container">
-
+        <section class="wl-main-section">
+            <h2 class="wl-main-section-title">{{@custom.main_title}}</h2>
+            <p class="wl-main-section-descrition">{{@custom.main_description}}</p>
+        </section>
         <div class="wl-postfeed">
         {{#foreach posts}}
-
             {{> "card" page=../pagination.page }} {{!-- partials/card.hbs --}}
-
         {{/foreach}}
         </div>
-
         {{!-- If JS isn't enabled, fallback to standard pagination --}}
         <noscript>
             <div class="wl-pagination">
