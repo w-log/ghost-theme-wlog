@@ -1,0 +1,19 @@
+.wl-tag {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.wl-tag-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.6rem;
+    border-radius: 9999px;
+    color: var(--color-secondary);
+    background: var(--color-primary);
+    font-size: 1.2rem;
+    line-height: 1.2em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}

@@ -97,6 +97,7 @@ form[data-members-form].error .message-error {
 form[data-members-form].success .message-success {
     background: var(--color-success);
 }
+
 form[data-members-form].error .message-error {
     color: var(--color-error);
     background: #fff;

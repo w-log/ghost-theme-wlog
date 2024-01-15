@@ -13,6 +13,8 @@ production stylesheet in assets/built/screen.css using: npm run dev
 @import 'components/global.css';
 @import 'components/forms.css';
 @import 'components/buttons.css';
+@import 'components/card.css';
+@import 'components/tag.css';
 
 /* Ghost components */
 @import 'ghost/header.css';
@@ -28,12 +30,22 @@ production stylesheet in assets/built/screen.css using: npm run dev
 /* Main - Your styles here! Edit below
 /* ---------------------------------------------------------- */
 html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body.overflow-hidden {
+    overflow: hidden;
+}
+
 .wl-viewport {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background: var(--color-primary);
     color: var(--color-secondary);
+    padding-top: var(--header-height);
 }
 
 .wl-main {
@@ -51,9 +63,11 @@ html,
 }
 
 .wl-postfeed {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
     grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
-    gap: 4.8vmin 4vmin;
+    /* gap: 4.8vmin 4vmin; */
     padding: 8vmin 0;
 }
 
@@ -67,26 +81,6 @@ html,
     margin: 0 auto;
 }
 
-.wl-head-actions a:not(.wl-button) {
-    display: inline-flex;
-    align-items: center;
-    margin: 0;
-    padding: 10px;
-}
-
-.wl-head-actions a svg {
-    height: 1.8rem;
-    fill: currentcolor;
-}
-
-.wl-head-actions a:first-child svg {
-    margin-left: 20px;
-}
-
-.wl-head-actions a:last-child svg {
-    height: 2rem;
-}
-
 /* Index
 /* ---------------------------------------------------------- */
 
@@ -95,7 +89,6 @@ html,
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-bottom: var(--header-height);
 }
 
 .wl-main-section-title {
@@ -107,57 +100,6 @@ html,
 .wl-main-section-description {
     font-size: 1.4rem;
     line-height: 1.4;
-}
-
-/* .wl-card:not(:first-child) {
-    margin: 8vmin auto 0;
-} */
-
-.wl-card-link {
-    display: flex;
-    flex-direction: column;
-}
-
-.wl-card-image {
-    width: 100%;
-    /* max-height: 700px; */
-    object-fit: cover;
-    margin-bottom: 4vmin;
-    aspect-ratio: 1 / 1;
-}
-
-.wl-card-image:first-of-type {
-    aspect-ratio: 16 / 9;
-}
-
-.wl-card-meta {
-    display: block;
-    margin: 0 0 1rem;
-    font-size: 1.4rem;
-    line-height: 1.2em;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
-
-.wl-card-content {
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.6rem;
-}
-
-.wl-card-content p {
-    margin: 1.2rem 0;
-    padding: 0 3vmin;
-}
-
-.wl-card-content > strong {
-    display: inline-block;
-    padding: 1px 0;
-    font-weight: 500;
-    box-shadow: 0 -1px 0 0 inset currentColor;
-    opacity: 0.75;
 }
 
 /* Page
@@ -189,7 +131,6 @@ html,
 
 /* Post
 /* ---------------------------------------------------------- */
-
 .wl-header {
     padding: 0 0 8vmin 0;
     text-align: center;
@@ -281,6 +222,24 @@ html,
     width: 100%;
     height: 100%;
 }
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-clamp, 2);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.sr-only {
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 @media (max-width: 700px) {
     .wl-author-meta {
         font-size: 1.6rem;

@@ -8,17 +8,24 @@
                     {{@site.title}}
                 {{/if}}
             </a>
-            <a class="wl-burger" role="button" aria-label="menu">
-                <div class="wl-burger-box">
-                    <div class="wl-burger-inner"></div>
-                </div>
-            </a>
         </div>
-        <div class="wl-head-menu">
+        <!-- Desktop menu -->
+        <div class="wl-head-menu wl-head-menu-desktop">
             {{navigation}}
             <div class="wl-head-actions">
                 <div class="wl-head-actions-list">
                     {{search}}
+                    <div class="wl-toggle-darkmode">
+                        <label for="toggle-darkmode-desktop" aria-label="{{t "Toggle dark mode"}}" >
+                            <span class="icon-light">
+                                {{> "icons/light" }}
+                            </span>
+                            <span class="icon-dark">
+                                {{> "icons/dark" }}
+                            </span>
+                        </label>
+                        <input id="toggle-darkmode-desktop" type="checkbox" class="js-toggle-darkmode sr-only" />
+                    </div>
                     {{#if @site.members_enabled}}
                         {{^if @member}}
                         <a class="wl-button" href="{{@site.signup_url}}">Subscribe</a>
@@ -27,6 +34,45 @@
                         {{/if}}
                     {{/if}}
                 </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="wl-head-menu wl-head-menu-mobile">
+
+            <div class="wl-head-actions">
+                {{search}}
+                <a class="wl-mobile-menu-button js-mobile-menu-toggle" role="button">
+                    {{> "icons/menu" }}
+                </a>
+            </div>
+            <div id="wl-mobile-menu">
+                <div class="wl-mobile-menu-inner">
+                    <a class="wl-mobile-menu-button js-mobile-menu-close" role="button">
+                        {{> "icons/close" }}
+                    </a>
+                    {{navigation}}
+                    {{#if @site.members_enabled}}
+
+                        {{^if @member}}
+                        <a class="wl-button" href="{{@site.signup_url}}">Subscribe</a>
+                        {{else}}
+                        <a class="wl-button" href="#/portal/account">Account</a>
+                        {{/if}}
+                    {{/if}}
+                    <hr />
+                    <div class="wl-toggle-darkmode">
+                        <label for="toggle-darkmode-mo" aria-label="{{t "Toggle dark mode"}}" >
+                            <span class="icon-light">
+                                {{> "icons/light" }}
+                            </span>
+                            <span class="icon-dark">
+                                {{> "icons/dark" }}
+                            </span>
+                        </label>
+                        <input id="toggle-darkmode-mo" type="checkbox" class="js-toggle-darkmode sr-only" />
+                    </div>
+                </div>
+                <div class="wl-mobile-menu-dim js-mobile-menu-close" aria-label="close menu"></div>
             </div>
         </div>
     </nav>

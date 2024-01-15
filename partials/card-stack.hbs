@@ -1,0 +1,18 @@
+{{!--
+Default post card stack type
+--}}
+<article class="wl-card wl-card-stack {{post_class}}">
+    <a class="wl-card-link" href="{{url}}">
+        <div class="wl-card-content">
+            <h2 class="wl-card-title">{{title}}</h2>
+            <p class="line-clamp" style="--line-clamp: 2;">{{excerpt}}</p>
+            <div class="wl-card-meta">
+                {{> "tag" }}
+                <span class="wl-card-time">
+                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YY/MM/DD"}}</time>
+                    <span class="bull">&bull;</span> {{reading_time}}
+                </span>
+            </div>
+        </div>
+    </a>
+</article>

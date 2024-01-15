@@ -2,14 +2,17 @@
 <div class="wl-page">
     <div class="wl-container">
         <section class="wl-main-section">
-            <h2 class="wl-main-section-title">{{@custom.main_title}}</h2>
+            <h3 class="wl-main-section-title">{{@custom.main_title}}</h2>
             <p class="wl-main-section-descrition">{{@custom.main_description}}</p>
         </section>
-        <div class="wl-postfeed">
-        {{#foreach posts}}
-            {{> "card" page=../pagination.page }} {{!-- partials/card.hbs --}}
-        {{/foreach}}
-        </div>
+        <section class="wl-postfeed">
+            <h3>
+                {{t "Recent articles"}}
+            </h3>
+            {{#foreach posts}}
+                {{> "card-stack" page=../pagination.page }} {{!-- partials/card.hbs --}}
+            {{/foreach}}
+        </section>
         {{!-- If JS isn't enabled, fallback to standard pagination --}}
         <noscript>
             <div class="wl-pagination">

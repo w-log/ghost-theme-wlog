@@ -8,6 +8,9 @@ import babel from '@rollup/plugin-babel';
 // Minifies the bundle
 import terser from '@rollup/plugin-terser';
 
+// iife code spliiting plugin
+import iife from 'rollup-plugin-iife';
+
 // CSS
 // Enable the PostCSS preprocessor
 import postcss from 'rollup-plugin-postcss';
@@ -17,7 +20,7 @@ import atImport from 'postcss-import';
 import postcssPresetEnv from 'postcss-preset-env';
 
 // Development: Enables a livereload server that watches for changes to CSS, JS, and Handlbars files
-import { resolve } from 'path';
+import path from 'path';
 import livereload from 'rollup-plugin-livereload';
 
 // Rollup configuration
@@ -26,9 +29,20 @@ export default defineConfig({
     output: {
         dir: 'assets/built',
         sourcemap: true,
-        format: 'iife',
-        plugins: process.env.BUILD !== 'production' ? [] : [terser()],
+        globals: {
+            Swiper: 'swiper',
+        },
+        external: ['swiper'],
+        format: 'es',
+        plugins:
+            process.env.BUILD !== 'production' ? [iife()] : [terser(), iife()],
         assetFileNames: '[name][extname]',
+        manualChunks(id) {
+            if (id.includes('node_modules')) {
+                return 'vendor';
+            }
+        },
+        chunkFileNames: '[name].js',
     },
     plugins: [
         commonjs({
@@ -37,7 +51,7 @@ export default defineConfig({
         nodeResolve({
             extensions: ['.js', '.css'],
         }),
-        babel({ include: ['assets/js/*'], babelHelpers: 'runtime' }),
+        babel({ include: ['assets/js/**/*'], babelHelpers: 'runtime' }),
         postcss({
             extract: true,
             sourceMap: true,
@@ -47,9 +61,9 @@ export default defineConfig({
         }),
         process.env.BUILD !== 'production' &&
             livereload({
-                watch: resolve('.'),
+                watch: path.resolve('.'),
                 extraExts: ['hbs', 'js', 'css'],
-                exclusions: [resolve('node_modules')],
+                exclusions: [path.resolve('node_modules')],
             }),
     ],
 });

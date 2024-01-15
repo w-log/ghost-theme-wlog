@@ -1,9 +1,8 @@
 {{!< default}}
 
-{{#post}}
 
 <article class="wl-article {{post_class}}">
-
+    {{#post}}
     <header class="wl-header wl-canvas">
         <span class="wl-post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
         <h1 class="wl-title">{{title}}</h1>
@@ -60,24 +59,23 @@
     <div class="wl-content wl-canvas">
         {{content}}
     </div>
-
+    {{/post}}
     <footer class="wl-footer wl-canvas">
-
-        <div class="wl-post-authors">
-            Written by {{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}}
-        </div>
-
         {{#if comments}}
         <section class="wl-post-comments">
             {{comments}}
         </section>
         {{/if}}
-
     </footer>
-
+    <div class="l-post-progress">
+        <div class="l-post-progress-container">
+            <div class="l-post-progress-bar js-post-progress"></div>
+        </div>
+    </div>
+    {{> "related-post"}}
 </article>
 
-<aside class="wl-readmore">
+{{!-- <aside class="wl-readmore">
     <div class="wl-readmore-inner wl-container">
         <div class="wl-readmore-next">
             {{#next_post}}<a href="{{url}}">{{> "icons/arrow-left"}} <h4>{{title}}</h4></a>{{/next_post}}
@@ -88,6 +86,19 @@
             </a>{{/prev_post}}
         </div>
     </div>
-</aside>
+</aside> --}}
 
-{{/post}}
+
+
+
+
+{{#contentFor "styles"}}
+
+{{/contentFor}}
+{{#contentFor "scripts"}}
+    <script> </script>
+    <script>
+
+
+    </script>
+{{/contentFor}}

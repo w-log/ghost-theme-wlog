@@ -3,24 +3,20 @@
 
 :root {
     /* Colours */
-    --color-primary: #0f1521;
-    --color-primary-100: #022650;
     --color-base: #131313;
     --color-border: #ddd;
     --color-white: #fff;
     --color-bg: #f5f5f5;
     --color-success: #80b912;
     --color-error: #f05230;
-    --color-secondary: #e5e9f2;
     --color-text-1: #8d6a4c;
     --color-text-2: #5e341b;
 
     /* Fonts */
-    --font-sans: DM Sans, system-ui, -apple-system, BlinkMacSystemFont,
-        'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
-        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-        'Noto Color Emoji', sans-serif;
-
+    --font-sans: DM Sans, Pretendard, system-ui, -apple-system,
+        BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+        'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
     --font-serif: Georgia, Times, serif;
     --font-mono: Menlo, Courier, monospace;
     --font-light: 100;
@@ -63,4 +59,22 @@
     --spacing-18: 7.2rem;
     --spacing-19: 7.6rem;
     --spacing-20: 8rem;
+}
+
+[data-theme='light'] {
+    --color-primary: #fff;
+    --color-primary-100: #fff;
+    --color-secondary: #022650;
+}
+
+[data-theme='dark'] {
+    --color-primary: #0f1521;
+    --color-primary-100: #022650;
+    --color-secondary: #e5e9f2;
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --header-height: 6rem;
+    }
 }
