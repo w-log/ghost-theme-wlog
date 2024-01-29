@@ -242,7 +242,6 @@
     font-size: 1em;
     text-align: left;
     padding-bottom: var(--spacing-4);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 /* #wl-mobile-menu .nav li.nav-current a {
@@ -273,6 +272,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .wl-toggle-darkmode .icon-light,
@@ -289,6 +289,7 @@
     display: inline-flex;
     align-items: center;
     line-height: 1;
+    cursor: pointer;
 }
 
 [data-theme='light'] .icon-dark {

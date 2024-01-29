@@ -57,6 +57,7 @@
     </header>
 
     <div class="wl-content wl-canvas">
+        <aside class="wl-sidebar"><div class="wl-toc"><string>Table of Contents</strong></div></aside>
         {{content}}
     </div>
     {{/post}}
@@ -90,15 +91,24 @@
 
 
 
-
-
 {{#contentFor "styles"}}
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.css">
 {{/contentFor}}
 {{#contentFor "scripts"}}
-    <script> </script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.min.js" ></script>
     <script>
-
-
+        document.addEventListener('DOMContentLoaded', function() {
+             tocbot.init({
+                // Where to render the table of contents.
+                tocSelector: '.wl-toc',
+                // Where to grab the headings to build the table of contents.
+                contentSelector: '.wl-content',
+                // Which headings to grab inside of the contentSelector element.
+                headingSelector: 'h1, h2, h3, h4',
+                // Ensure correct positioning
+                hasInnerContainers: true,
+                includeTitleTags: true,
+            });
+        });
     </script>
 {{/contentFor}}

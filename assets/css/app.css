@@ -26,6 +26,7 @@ production stylesheet in assets/built/screen.css using: npm run dev
 @import 'ghost/badge.css';
 @import 'ghost/pagination.css';
 @import 'ghost/comments.css';
+@import 'ghost/toc.css';
 
 /* Main - Your styles here! Edit below
 /* ---------------------------------------------------------- */
@@ -33,6 +34,12 @@ html,
 body {
     width: 100%;
     height: 100%;
+    background: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body.overflow-hidden {
@@ -43,8 +50,7 @@ body.overflow-hidden {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: var(--color-primary);
-    color: var(--color-secondary);
+
     padding-top: var(--header-height);
 }
 
@@ -92,7 +98,6 @@ body.overflow-hidden {
 }
 
 .wl-main-section-title {
-    font-size: 3.2rem;
     font-weight: bold;
     margin-bottom: 0.4rem;
 }

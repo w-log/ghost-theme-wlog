@@ -1,6 +1,6 @@
-# Ghost Starter Theme
+# Ghost Theme wlog
 
-A starter framework for Ghost themes! Click **Use this template** to create a copy of this repo for everything you need to get started developing a custom Ghost theme.
+고스트 개인 개발 블로그 개설을 위한 스타터 템플릿
 
 &nbsp;
 
@@ -10,84 +10,75 @@ Ghost uses a simple templating language called [Handlebars](http://handlebarsjs.
 
 We've documented this starter theme pretty heavily so that it should be possible to work out what's going on just by reading the code and the comments. We also have a robust set of resources to help you build awesome custom themes:
 
-- The official [theme documentation](https://ghost.org/docs/themes) is the complete resource for everything you need to know about Ghost theme development
-- [Tutorials](https://ghost.org/tutorials/) offer a step-by-step guide to building the most common features in Ghost themes
-- The [Ghost VS Code extension](https://marketplace.visualstudio.com/items?itemName=TryGhost.ghost) speeds up theme development and provides quick access to helpful info
-- All of Ghost's official themes are [open source](https://github.com/tryghost) and are a great reference for learning how to create a theme
+-   The official [theme documentation](https://ghost.org/docs/themes) is the complete resource for everything you need to know about Ghost theme development
+-   [Tutorials](https://ghost.org/tutorials/) offer a step-by-step guide to building the most common features in Ghost themes
+-   The [Ghost VS Code extension](https://marketplace.visualstudio.com/items?itemName=TryGhost.ghost) speeds up theme development and provides quick access to helpful info
+-   All of Ghost's official themes are [open source](https://github.com/tryghost) and are a great reference for learning how to create a theme
 
 &nbsp;
 
-## Starter theme features
+## 테마 기능
 
-🔁&nbsp;Livereload by default. See changes instantly in the browser whenever you save a file.
+🔁&nbsp;Docker를 베이스로한 local 테마 개발환경 제공
 
-🔎&nbsp;Optimized for VS Code. Find the files you're looking for more easily.
+🗃️&nbsp;Rollup 기반 모듈 번들링으로 vender 모듈과 app 청크 분리
 
-🗃️&nbsp;Write modern JavaScript. Use ESM out of the box to write more manageable Javascript.
+🗜️&nbsp;빌드 시 에셋 최적화 및 [Rollup](https://rollupjs.org)을 통한 빠른 번들링 속도 제공
 
-🗜️&nbsp;Assets optimized automatically. JavaScript and CSS are minified and transpiled by default.
+🦋&nbsp; [PostCSS](https://postcss.org/)를 통해서 차세대 CSS 작성 및 기능 확장[`rollup.config.js`](rollup.config.js)
 
-👟&nbsp;Fast compile times, powered by [Rollup](https://rollupjs.org).
-
-🦋&nbsp;Write next-gen CSS for today's browsers with [PostCSS](https://postcss.org/). Add the CSS tools you love via [`rollup.config.js`](rollup.config.js).
-
-🚢&nbsp;Ghost's [GH Deploy Action](.github/workflows/deploy-theme.yml) included by default. [Learn more how to deploy your theme automatically](https://github.com/TryGhost/action-deploy-theme)
-
-➕&nbsp;Extensible by design. Rollup's configuration structure makes it easy to add [any number of plugins easily](https://github.com/rollup/plugins). 
+🚢&nbsp;[Github Actions](.github/workflows/deploy-theme.yml)를 이용한 테마 자동 배포 [Learn more how to deploy your theme automatically](https://github.com/TryGhost/action-deploy-theme)
 
 &nbsp;
 
-## Theme structure
+## TODO
+
+-   [ ] 관련 게시글
+-   [ ] 이력 및 JD 카테고리 전용 템플릿
+-   [ ] 메인 페이지 최근 글 목록
+
+&nbsp;
+
+## 테마 구조
 
 The main files are:
 
-- [`default.hbs`](default.hbs) - The main template file
-- [`index.hbs`](index.hbs) - Used for the home page
-- [`post.hbs`](post.hbs) - Used for individual posts
-- [`page.hbs`](page.hbs) - Used for individual pages
-- [`tag.hbs`](tag.hbs) - Used for tag archives
-- [`author.hbs`](author.hbs) - Used for author archives
+-   [`default.hbs`](default.hbs) - The main template file
+-   [`index.hbs`](index.hbs) - Used for the home page
+-   [`post.hbs`](post.hbs) - Used for individual posts
+-   [`page.hbs`](page.hbs) - Used for individual pages
+-   [`tag.hbs`](tag.hbs) - Used for tag archives
+-   [`author.hbs`](author.hbs) - Used for author archives
 
 One neat trick is that you can also create custom one-off templates just by adding the slug of a page to a template file. For example:
 
-- `page-about.hbs` - Custom template for the `/about/` page
-- `tag-news.hbs` - Custom template for `/tag/news/` archive
-- `author-jamie.hbs` - Custom template for `/author/jamie/` archive
+-   `page-about.hbs` - Custom template for the `/about/` page
+-   `tag-news.hbs` - Custom template for `/tag/news/` archive
+-   `author-jamie.hbs` - Custom template for `/author/jamie/` archive
 
 &nbsp;
 
-## Development guide
+## 개발 가이드
 
-The Starter theme provides a first-class development experience out of the box. 
+The Starter theme provides a first-class development experience out of the box.
 
-&nbsp;
+### 실행전 필수설치항목
 
-### Setup
+-   [Docker 설치](https://docs.docker.com/engine/install/)
+-   [Node.js 설치](https://nodejs.org/)
 
-To see realtime changes during development, symlink the Starter theme folder to the `content/themes` folder in your local Ghost install. 
+### 테마 실행 패키지 설치
 
 ```bash
-ln -s /path/to/starter /ghost/content/themes/starter
+yarn # or npm install
 ```
 
-Restart Ghost and select the Starter theme from **Settings**.
+### 시작 개발 모드
 
-From the theme's root directory, install the dependencies:
-
-```bash
-npm install
-```
-
-If Node isn't installed, follow the [official Node installation guide](https://nodejs.org/).
-
-&nbsp;
-
-### Start development mode
-
-From the Starter theme folder, start development mode:
+도커가 실행중인 상태에서 아래 커맨드 입력
 
 ```bash
-npm run dev
+npm run docker:dev
 ```
 
 Changes you make to your styles, scripts, and Handlebars files will show up automatically in the browser. CSS and Javascript will be compiled and output to the `built` folder.
@@ -117,8 +108,6 @@ npm run test
 ```
 
 &nbsp;
-
-
 
 ## Copyright & License
 

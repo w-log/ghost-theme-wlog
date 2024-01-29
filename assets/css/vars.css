@@ -17,7 +17,7 @@
         BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
         'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
-    --font-serif: Georgia, Times, serif;
+    --font-serif: Pretendard, Georgia, Times, serif;
     --font-mono: Menlo, Courier, monospace;
     --font-light: 100;
     --font-normal: 400;
@@ -63,7 +63,7 @@
 
 [data-theme='light'] {
     --color-primary: #fff;
-    --color-primary-100: #fff;
+    --color-primary-100: #f5f5f5;
     --color-secondary: #022650;
 }
 
