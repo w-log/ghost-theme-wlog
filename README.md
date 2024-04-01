@@ -111,4 +111,4 @@ npm run test
 
 ## Copyright & License
 
-Copyright (c) 2013-2023 Ghost Foundation - Released under the [MIT license](LICENSE).
+Copyright (c) 2023-2024 W-log - Released under the [MIT license](LICENSE).
