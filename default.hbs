@@ -18,6 +18,7 @@
     <link rel="preload" href="{{asset "built/app.css"}}" as="style" >
     <link rel="preload" href="{{asset "built/vendor.js"}}" as="script" />
     <link rel="preload" href="{{asset "built/app.js"}}" as="script" />
+
     {{!-- This #block helper will try to preload page-specific assets --}}
     {{{block "preload"}}}
 
@@ -139,8 +140,8 @@
       }
     </script>
 </head>
-<body id class="{{body_class}}">
-    <div class="wl-viewport">
+<body  class="{{body_class}}">
+    <div id="swup" class="wl-viewport transition-fade" >
         {{> "layout/header"}}
         <main class="wl-main">
             {{{body}}}

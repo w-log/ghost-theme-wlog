@@ -16,7 +16,6 @@
             {{#if bio}}
             <p>{{ bio }}</p>
             {{/if}}
-
             <div class="wl-author-meta">
                 <div class="wl-author-links">
                     {{#if website}}
@@ -36,7 +35,6 @@
                     {{/if}}
                 </div>
             </div>
-
             {{#if cover_image}}
             <img
                 class="wl-page-image"
@@ -46,12 +44,9 @@
             {{/if}}
         </header>
         {{/author}}
-
         <div class="wl-postfeed">
             {{#foreach posts}}
-
-            {{> "card"}} {{!-- partials/card.hbs --}}
-
+                {{> "card"}} {{!-- partials/card.hbs --}}
             {{/foreach}}
         </div>
     </div>

@@ -1362,6 +1362,34 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
+"@swup/body-class-plugin@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@swup/body-class-plugin/-/body-class-plugin-3.2.0.tgz#3b52c0aec23448a344b85dd47d7e79a5c854434b"
+  integrity sha512-v8SOTeaCp+MfJHzg9T0kavBv2H+jk/6YM9ORKJnp8Ax5LIMdAfUNQa5/URurzHtJ8nGFJodVS5Lk/TXD9YaF3Q==
+  dependencies:
+    "@swup/plugin" "^4.0.0"
+
+"@swup/fragment-plugin@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@swup/fragment-plugin/-/fragment-plugin-1.0.1.tgz#73d5e62e59b0efab81d5e83395f27066078f8cd4"
+  integrity sha512-Gi3WOHrabb6hcSv5mPKQwuQiNjybZ+I5vRAxrJRfZaav+Uv+CnmhShSzqwH4PB8FHE+mmuUKd30pUkCgDLBhxA==
+  dependencies:
+    "@swup/plugin" "^4.0.0"
+
+"@swup/head-plugin@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@swup/head-plugin/-/head-plugin-2.2.0.tgz#f9f95c2dbe3170de5e3ad8f36e7daa8e3902123b"
+  integrity sha512-8/p86H6Ypu+peAAnRZEugOdot3IHhWRMoP/19f9ZEOqErDnIpSWHOkiTI/dWAcHZ6Gbia67fu67cgD2Rag1eKQ==
+  dependencies:
+    "@swup/plugin" "^4.0.0"
+
+"@swup/plugin@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@swup/plugin/-/plugin-4.0.0.tgz#5400eef1a5b90d463f591bde9dd40bf59fea5081"
+  integrity sha512-3Kq31BJxnzoPg643YxGoWQggoU6VPKZpdE5CqqmP7wwkpCYTzkRmrfcQ29mGhsSS7xfS7D33iZoBiwY+wPoo2A==
+  dependencies:
+    swup "^4.0.0"
+
 "@trysound/sax@0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
@@ -3389,10 +3417,10 @@ swiper@^11.0.5:
   resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.0.5.tgz#6ed1ad06e6906ba42fd4b93d4988f0626a49046e"
   integrity sha512-rhCwupqSyRnWrtNzWzemnBLMoyYuoDgGgspAm/8iBD3jCvAWycPLH4Z3TB0O5520DHLzMx94yUMH/B9Efpa48w==
 
-swup@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/swup/-/swup-4.5.0.tgz#ce0ef315682fdcace6ba9ada0bb0c215877330ea"
-  integrity sha512-25p4NDo7LmV+S5k86OCysqGZefPd9le+p/SeJxFlWG9qYn8ERKoXWu55cuMl2y1GpWiI8e1Ic2vfr7EGKVvEaQ==
+swup@^4.0.0, swup@^4.6.1:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/swup/-/swup-4.6.1.tgz#fc0eafd411a27482e0be3e9dbab27bfc7b1a9c9c"
+  integrity sha512-NPjtE00n2aT0QLDChefU7d/eqqz1zwLXsCCCLz7Vi/sLoszC3eicg3oVO0uLtwM1/qz0na3nGRNw3Avwm4VSfw==
   dependencies:
     delegate-it "^6.0.0"
     opencollective-postinstall "^2.0.2"
@@ -3430,6 +3458,11 @@ to-regex-range@^5.0.1:
   integrity sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==
   dependencies:
     is-number "^7.0.0"
+
+tocbot@^4.25.0:
+  version "4.25.0"
+  resolved "https://registry.yarnpkg.com/tocbot/-/tocbot-4.25.0.tgz#bc38aea5ec8f076779bb39636f431b044129a237"
+  integrity sha512-kE5wyCQJ40hqUaRVkyQ4z5+4juzYsv/eK+aqD97N62YH0TxFhzJvo22RUQQZdO3YnXAk42ZOfOpjVdy+Z0YokA==
 
 tree-kill@^1.2.2:
   version "1.2.2"

@@ -103,16 +103,16 @@
             "main_title": {
                 "type": "text",
                 "group": "homepage"
-            },
-            "main_description": {
-                "type": "text",
-                "group": "homepage"
             }
         }
     },
     "type": "module",
     "dependencies": {
+        "@swup/body-class-plugin": "^3.2.0",
+        "@swup/fragment-plugin": "^1.0.1",
+        "@swup/head-plugin": "^2.2.0",
         "swiper": "^11.0.5",
-        "swup": "^4.5.0"
+        "swup": "^4.6.1",
+        "tocbot": "^4.25.0"
     }
 }

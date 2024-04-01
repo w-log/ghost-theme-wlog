@@ -37,6 +37,8 @@
     --margin: 2rem;
     --radius: 0.5rem;
     --header-height: 8rem;
+    --container-width: 1200px;
+    --content-width: 720px;
 
     /** spacings */
     --spacing-1: 0.4rem;
@@ -69,7 +71,7 @@
 
 [data-theme='dark'] {
     --color-primary: #0f1521;
-    --color-primary-100: #022650;
+    --color-primary-100: hsla(#1c2431);
     --color-secondary: #e5e9f2;
 }
 

@@ -25,13 +25,15 @@
 a.toc-link {
     display: inline-flex;
     align-items: center;
-    height: 2.4rem !important;
+    min-height: 2.4rem !important;
     margin: 0.3rem 0 0.3rem 1rem;
+    word-break: keep-all;
     font-size: 1.4rem;
+    padding-right: var(--spacing-2);
 }
 
 .toc-link::before {
-    width: 0.6rem !important;
+    width: 0.4rem !important;
     border-radius: 0.2rem;
 }
 
@@ -47,9 +49,9 @@ a.toc-link {
     background-color: var(--color-secondary) !important;
 }
 
-.wl-sidebar {
+/* .wl-sidebar {
     display: none;
-}
+} */
 
 @media (min-width: 1300px) {
     .wl-sidebar {

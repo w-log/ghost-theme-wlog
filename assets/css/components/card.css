@@ -62,6 +62,10 @@
     text-align: left;
 }
 
+.wl-card-stack > * {
+    flex: 1;
+}
+
 .wl-card-stack .wl-card-content {
     margin: 0;
     padding: 0;

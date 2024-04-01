@@ -1,0 +1,15 @@
+<div class="wl-resume-content">
+    <h3 id="{{title}}">{{title}}</h3>
+    {{#if pages}}
+        <div class="swiper js-resume-slider">
+            <div class="swiper-wrapper">
+                {{#foreach pages}}
+                    {{> "card" custom_class="swiper-slide" }}
+                {{/foreach}}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    {{else}}
+        <p>{{t "No work experience found"}}</p>
+    {{/if}}
+</div>

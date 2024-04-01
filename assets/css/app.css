@@ -10,6 +10,7 @@ production stylesheet in assets/built/screen.css using: npm run dev
 
 /* Base components */
 @import 'vars.css';
+@import 'transition.css';
 @import 'components/global.css';
 @import 'components/forms.css';
 @import 'components/buttons.css';
@@ -26,8 +27,12 @@ production stylesheet in assets/built/screen.css using: npm run dev
 @import 'ghost/badge.css';
 @import 'ghost/pagination.css';
 @import 'ghost/comments.css';
+@import 'ghost/resume.css';
+@import 'ghost/related.css';
 @import 'ghost/toc.css';
 
+/* Lib */
+@import 'swiper/swiper-bundle.min.css';
 /* Main - Your styles here! Edit below
 /* ---------------------------------------------------------- */
 html,
@@ -73,7 +78,6 @@ body.overflow-hidden {
     flex-direction: column;
     gap: 4rem;
     grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
-    /* gap: 4.8vmin 4vmin; */
     padding: 8vmin 0;
 }
 
@@ -83,13 +87,12 @@ body.overflow-hidden {
 
 .wl-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--container-width);
     margin: 0 auto;
 }
 
 /* Index
 /* ---------------------------------------------------------- */
-
 .wl-main-section {
     min-height: calc(100vh - var(--header-height));
     display: flex;
@@ -103,7 +106,7 @@ body.overflow-hidden {
 }
 
 .wl-main-section-description {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     line-height: 1.4;
 }
 
@@ -128,7 +131,7 @@ body.overflow-hidden {
     opacity: 0.5;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .wl-page-head > p {
         font-size: 1.6rem;
     }
@@ -142,12 +145,17 @@ body.overflow-hidden {
 }
 
 .wl-post-meta {
-    display: block;
-    margin: 0 0 1rem;
-    font-size: 1.4rem;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 3rem 0 0;
+    /* font-size: 1.6rem; */
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    opacity: 0.8;
+    opacity: 0.95;
+    gap: 0.6rem;
+    font-weight: 300;
+    /* grid-column: auto; */
 }
 
 .wl-excerpt {
@@ -155,9 +163,8 @@ body.overflow-hidden {
 }
 
 .wl-feature-image {
-    grid-column: wide-start / wide-end;
     width: 100%;
-    margin: 8vmin 0 0;
+    margin: 3rem 0 0;
 }
 
 .wl-feature-image img {
@@ -209,7 +216,6 @@ body.overflow-hidden {
 }
 
 /** social icons */
-
 .wl-social {
     display: flex;
     margin: var(--spacing-3) calc(var(--spacing-2) * -1);
@@ -245,8 +251,36 @@ body.overflow-hidden {
     white-space: nowrap;
 }
 
-@media (max-width: 700px) {
+dialog#post {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.5);
+    border-radius: var(--radius);
+    color: inherit;
+    max-width: var(--container-width);
+    width: 100%;
+}
+
+dialog#post::backdrop {
+    background: var(--color-primary-100);
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
     .wl-author-meta {
         font-size: 1.6rem;
+    }
+
+    .wl-postfeed {
+        gap: 1.6rem;
     }
 }

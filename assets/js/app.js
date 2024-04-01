@@ -3,13 +3,20 @@
 // Import CSS
 import '../css/app.css';
 
-import Swiper from 'swiper';
-
 // Import JS
+import './post';
 import setupMenu from './utils/setupMenu';
+import setupPost from './utils/setupPost';
+import setupSwiper from './utils/setupSwiper';
+import setupSwup from './utils/setupSwup';
 // import infiniteScroll from './utils/infiniteScroll';
 
-document.addEventListener('DOMContentLoaded', () => {
+const onLoad = () => {
     // infiniteScroll();
     setupMenu();
-});
+    setupSwiper();
+    setupSwup();
+    setupPost();
+};
+
+document.addEventListener('DOMContentLoaded', onLoad);

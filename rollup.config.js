@@ -29,10 +29,6 @@ export default defineConfig({
     output: {
         dir: 'assets/built',
         sourcemap: true,
-        globals: {
-            Swiper: 'swiper',
-        },
-        external: ['swiper'],
         format: 'es',
         plugins:
             process.env.BUILD !== 'production' ? [iife()] : [terser(), iife()],

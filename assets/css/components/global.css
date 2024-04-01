@@ -79,6 +79,7 @@ label {
 ::selection {
     text-shadow: none;
     background: var(--color-primary-100);
+    color: var(--color-secondary);
 }
 
 mark {
@@ -122,22 +123,6 @@ a[class]:hover {
     transition: 0.2s ease;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 0;
-    line-height: 1.15em;
-    font-weight: 700;
-}
-
-h1 {
-    font-size: 4.6rem;
-    letter-spacing: -0.5px;
-}
-
 hr {
     margin: var(--spacing-4) 0;
     position: relative;
@@ -157,6 +142,22 @@ hr {
     background: var(--color-primary);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    line-height: 1.15em;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 4rem;
+    letter-spacing: -0.5px;
+}
+
 @media (max-width: 500px) {
     h1 {
         font-size: 2.7rem;
@@ -164,7 +165,7 @@ hr {
 }
 
 h2 {
-    font-size: 3.6rem;
+    font-size: 3.2rem;
 }
 @media (max-width: 500px) {
     h2 {
@@ -173,8 +174,9 @@ h2 {
 }
 
 h3 {
-    font-size: 3.2rem;
+    font-size: 2.8rem;
 }
+
 @media (max-width: 500px) {
     h3 {
         font-size: 1.8rem;
@@ -182,15 +184,15 @@ h3 {
 }
 
 h4 {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
 }
 
 h5 {
-    font-size: 2.4rem;
+    font-size: 1.8rem;
 }
 
 h6 {
-    font-size: 2.2rem;
+    font-size: 1.4rem;
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */

@@ -1,9 +1,8 @@
 {{!< default}}
 
 {{#post}}
-<article class="wl-article {{post_class}}">
+<article class="wl-article wl-resume">
     <header class="wl-header wl-canvas">
-        <span class="wl-post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
         <h1 class="wl-title">{{title}}</h1>
         {{#if custom_excerpt}}
         <p class="wl-excerpt">{{custom_excerpt}}</p>
@@ -54,29 +53,20 @@
     </header>
     <div class="wl-content wl-canvas">
         {{content}}
+        {{#get "pages" filter="tags:[hash-resume-work-experience]" order="published_at DESC" include="tags,authors"  as |works|}}
+            {{#if works}}
+                {{> "resume-content" title=(t 'Work Experience') pages=works}}
+            {{/if}}
+        {{/get}}
+        {{#get "pages" filter="tags:[hash-resume-project]"  order="published_at DESC" include="tags,authors"  as |works|}}
+            {{#if works}}
+                {{> "resume-content" title=(t 'Project') pages=works}}
+            {{/if}}
+        {{/get}}
     </div>
-    <footer class="wl-footer wl-canvas">
-        <div class="wl-post-authors">
-            Written by {{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}}
-        </div>
-        {{#if comments}}
-        <section class="wl-post-comments">
-            {{comments}}
-        </section>
-        {{/if}}
-    </footer>
+    <div class="last-updated">
+        <p>last updated <time datetime="{{date updated_at format="YYYY-MM-DD"}}">{{date updated_at format="YY/MM/D"}}</time></p>
+    </div>
+    <template id="post"></template>
 </article>
-
-<aside class="wl-readmore">
-    <div class="wl-readmore-inner wl-container">
-        <div class="wl-readmore-next">
-            {{#next_post}}<a href="{{url}}">{{> "icons/arrow-left"}} <h4>{{title}}</h4></a>{{/next_post}}
-        </div>
-        <div class="wl-readmore-prev">
-            {{#prev_post}}<a href="{{url}}">
-                <h4>{{title}}</h4> {{> "icons/arrow-right"}}
-            </a>{{/prev_post}}
-        </div>
-    </div>
-</aside>
 {{/post}}

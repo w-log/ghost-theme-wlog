@@ -68,7 +68,7 @@
 }
 
 .wl-head-menu .nav li {
-    margin: 0 1.5vmin 0 0;
+    margin: 0 var(--spacing-4) 0 0;
     padding: 0;
     text-transform: uppercase;
 }
@@ -228,8 +228,8 @@
 
 .wl-mobile-menu-inner .wl-mobile-menu-button {
     position: absolute;
-    top: var(--spacing-4);
-    right: var(--spacing-4);
+    top: var(--spacing-2);
+    right: var(--spacing-2);
 }
 
 #wl-mobile-menu .nav {

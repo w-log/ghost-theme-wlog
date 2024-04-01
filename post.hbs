@@ -4,12 +4,16 @@
 <article class="wl-article {{post_class}}">
     {{#post}}
     <header class="wl-header wl-canvas">
-        <span class="wl-post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
         <h1 class="wl-title">{{title}}</h1>
-
-        {{#if custom_excerpt}}
+        <span class="wl-post-meta">
+            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYYY MMM Do"}}</time>
+            <span>
+                <span class="bull">&bull;</span> {{reading_time minute=(t '1 min read') minutes=(t "% min read")}}
+            </span>
+        </span>
+        {{!-- {{#if custom_excerpt}}
         <p class="wl-excerpt">{{custom_excerpt}}</p>
-        {{/if}}
+        {{/if}} --}}
 
         {{#if feature_image}}
         <figure class="wl-feature-image">
@@ -55,7 +59,6 @@
         </figure>
         {{/if}}
     </header>
-
     <div class="wl-content wl-canvas">
         <aside class="wl-sidebar"><div class="wl-toc"><string>Table of Contents</strong></div></aside>
         {{content}}
@@ -68,9 +71,9 @@
         </section>
         {{/if}}
     </footer>
-    <div class="l-post-progress">
-        <div class="l-post-progress-container">
-            <div class="l-post-progress-bar js-post-progress"></div>
+    <div class="wl-post-progress">
+        <div class="wl-post-progress-container">
+            <div class="wl-post-progress-bar js-post-progress"></div>
         </div>
     </div>
     {{> "related-post"}}
@@ -94,21 +97,4 @@
 {{#contentFor "styles"}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.css">
 {{/contentFor}}
-{{#contentFor "scripts"}}
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.min.js" ></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-             tocbot.init({
-                // Where to render the table of contents.
-                tocSelector: '.wl-toc',
-                // Where to grab the headings to build the table of contents.
-                contentSelector: '.wl-content',
-                // Which headings to grab inside of the contentSelector element.
-                headingSelector: 'h1, h2, h3, h4',
-                // Ensure correct positioning
-                hasInnerContainers: true,
-                includeTitleTags: true,
-            });
-        });
-    </script>
-{{/contentFor}}
+
