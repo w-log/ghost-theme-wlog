@@ -39,8 +39,10 @@
         <!-- Mobile menu -->
         <div class="wl-head-menu wl-head-menu-mobile">
             <div class="wl-head-actions">
-                {{search}}
-                <a class="wl-mobile-menu-button js-mobile-menu-toggle" role="button">
+                <span data-swup-persist="search">
+                    {{search}}
+                </span>
+                <a class="wl-mobile-menu-button js-mobile-menu-toggle" role="button" data-swup-persist="darkmode">
                     {{> "icons/menu" }}
                 </a>
             </div>
