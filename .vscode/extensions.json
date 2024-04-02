@@ -1,5 +1,3 @@
 {
-    "recommendations": [
-        "TryGhost.ghost"
-    ]
+    "recommendations": ["TryGhost.ghost", "esbenp.prettier-vscode"]
 }

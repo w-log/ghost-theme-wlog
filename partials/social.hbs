@@ -1,0 +1,23 @@
+<ul class="wl-social">
+    {{#if @custom.email}}
+    <li>
+        <a href="mailto:{{@custom.email}}" target="_blank" title="email">
+            {{> "icons/email"}}
+        </a>
+    </li>
+    {{/if}}
+    {{#if @custom.github}}
+    <li>
+        <a href="{{@custom.github}}" target="_blank" title="github">
+            {{> "icons/github"}}
+        </a>
+    </li>
+    {{/if}}
+    {{#if @custom.instagram}}
+    <li>
+        <a href="{{@custom.instagram}}" target="_blank" title="instagram">
+            {{> "icons/instagram"}}
+        </a>
+    </li>
+    {{/if}}
+</ul>

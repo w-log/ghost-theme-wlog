@@ -1,0 +1,30 @@
+{{!--
+This error template is used for all 404 errors, which might occur on your site.
+--}}
+
+{{!-- This block preloads specific assets for the 404 page --}}
+    {{!-- {{#contentFor "preload"}}
+    <link rel="preload" href="{{asset "css/404.css"}}" as="style" />
+    {{/contentFor}} --}}
+
+{{!-- This block loads specific styles for the 404 page --}}
+{{!-- {{#contentFor "styles"}}
+  <link rel="stylesheet" type="text/css" href="{{asset "css/404.css"}}" media="screen" />
+{{/contentFor}} --}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+
+{{!-- Special header.hbs partial to generate the <header> tag --}}
+
+<main class="wl-error">
+  <section class="wl-error-content">
+    <h1 class="wl-error-code">404</h1>
+    <p class="wl-error-title">{{t "Page not found"}}</p>
+    <p class="wl-error-description">
+      {{t "Unfortunately the page you were looking for could not be found."}}
+    </p>
+    <a href="{{@site.url}}" class="wl-button wl-button-large wl-error-link">{{t "Go to the home page"}}</a>
+  </section>
+</main>

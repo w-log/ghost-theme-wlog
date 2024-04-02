@@ -1,79 +1,163 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}">
 <head>
-
+    {{!-- Document Settings --}}
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{asset "built/index.css"}}" />
-    <script src="{{asset "built/index.js"}}" defer></script>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {{!-- Base Meta --}}
     <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{!-- Preconnect google fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preconnect" href="//www.instagram.com" crossorigin />
 
+    {{!-- Preload assets --}}
+    <link rel="preload" href="{{asset "built/app.css"}}" as="style" >
+    <link rel="preload" href="{{asset "built/vendor.js"}}" as="script" />
+    <link rel="preload" href="{{asset "built/app.js"}}" as="script" />
+
+    {{!-- This #block helper will try to preload page-specific assets --}}
+    {{{block "preload"}}}
+
+    <link rel="stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/static/pretendard.min.css" crossorigin />
+
+    {{!-- Global font Styles --}}
+    <style>
+        /** DM Sans */
+        @font-face {
+            font-family: "DM sans";
+            font-weight: normal;
+            font-style: normal;
+            src: local("DM Sans");
+            src: url("{{asset 'font/DMSans-Regular.woff'}}") format("woff"),
+                url("{{asset 'font/DMSans-Regular.woff2'}}") format("woff2");
+        }
+
+        @font-face {
+            font-family: "DM sans";
+            font-weight: 500;
+            font-style: normal;
+            src: local("DM Sans");
+            src: url("{{asset 'font/DMSans-Medium.woff'}}") format("woff"),
+                url("{{asset 'font/DMSans-Medium.woff2'}}") format("woff2");
+        }
+
+        @font-face {
+            font-family: "DM sans";
+            font-weight: bold;
+            font-style: normal;
+            src: local("DM Sans");
+            src: url("{{asset 'font/DMSans-Bold.woff'}}") format("woff"),
+                url("{{asset 'font/DMSans-Bold.woff2'}}") format("woff2");
+        }
+
+        @font-face {
+            font-family: "DM sans Regular";
+            font-weight: normal;
+            font-style: normal;
+            src: local("DM Sans");
+            src: url("{{asset 'font/DMSans-Regular.woff'}}") format("woff"),
+                url("{{asset 'font/DMSans-Regular.woff2'}}") format("woff2");
+        }
+
+        @font-face {
+            font-family: "DM sans Medium";
+            font-weight: normal;
+            font-style: normal;
+            src: local("DM Sans");
+            src: url("{{asset 'font/DMSans-Medium.woff'}}") format("woff"),
+                url("{{asset 'font/DMSans-Medium.woff2'}}") format("woff2");
+        }
+
+        @font-face {
+            font-family: "DM sans Bold";
+            font-weight: normal;
+            font-style: normal;
+            src: local("DM Sans");
+            src: url("{{asset 'font/DMSans-Bold.woff'}}") format("woff"),
+                url("{{asset 'font/DMSans-Bold.woff2'}}") format("woff2");
+        }
+
+        /** DM Sans Italic */
+        @font-face {
+            font-family: "DM sans";
+            font-weight: "normal";
+            font-style: italic;
+            src: local("DM Sans");
+            src: url("{{asset 'font/DMSans-Italic.woff'}}") format("woff"),
+                url("{{asset 'font/DMSans-Italic.woff2'}}") format("woff2");
+        }
+
+        @font-face {
+            font-family: "DM sans";
+            font-weight: 500;
+            font-style: italic;
+            src: local("DM Sans");
+            src: url("{{asset 'font/DMSans-MediumItalic.woff'}}") format("woff"),
+                url("{{asset 'font/DMSans-MediumItalic.woff2'}}") format("woff2");
+        }
+
+        @font-face {
+            font-family: "DM sans";
+            font-weight: bold;
+            font-style: italic;
+            src: local("DM Sans");
+            src: url("{{asset 'font/DMSans-BoldItalic.woff'}}") format("woff"),
+                url("{{asset 'font/DMSans-BoldItalic.woff2'}}") format("woff2");
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="{{asset "built/app.css"}}" media="screen" />
+
+    {{!-- This #block helper will inject a stylesheet for a specific page --}}
+    {{{block "styles"}}}
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
     {{ghost_head}}
-    {{!-- Outputs important meta data and settings, should always be in <head> --}}
 
+
+    {{!-- These variables are used to make the search form work --}}
+    <script>
+      // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+      var ghostHost = "{{@site.url}}"
+      // @license-end
+    </script>
+
+    {{!-- This script sets the correct theme mode (light or dark) --}}
+    <script>
+      if (typeof Storage !== 'undefined') {
+        var currentSavedTheme = localStorage.getItem('theme')
+        currentSavedTheme = currentSavedTheme ? currentSavedTheme : window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+
+        if (currentSavedTheme && currentSavedTheme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark')
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light')
+        }
+      }
+    </script>
 </head>
-<body class="{{body_class}}">
-<div class="gh-viewport">
-
-<header id="gh-head" class="gh-head">
-    <nav class="gh-head-inner gh-container">
-
-        <div class="gh-head-brand">
-            <a class="gh-head-logo" href="{{@site.url}}">
-                {{#if @site.logo}}
-                    <img src="{{@site.logo}}" alt="{{@site.title}}" />
-                {{else}}
-                    {{@site.title}}
-                {{/if}}
-            </a>
-            <a class="gh-burger" role="button" aria-label="menu">
-                <div class="gh-burger-box">
-                    <div class="gh-burger-inner"></div>
-                </div>
-            </a>
-        </div>
-        <div class="gh-head-menu">
-            {{navigation}}
-        </div>
-        <div class="gh-head-actions">
-            <div class="gh-head-actions-list">
-                {{search}}
-                {{#if @site.members_enabled}}
-                    {{^if @member}}
-                    <a class="gh-button" href="{{@site.signup_url}}">Subscribe</a>
-                    {{else}}
-                    <a class="gh-button" href="#/portal/account">Account</a>
-                    {{/if}}
-                {{/if}}
-            </div>
-        </div>
-    </nav>
-</header>
-
-<main class="gh-main">
-
-    {{{body}}}
-    {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
-
-</main>
-
-<footer class="gh-foot">
-    <div class="gh-container">
-        <div class="gh-foot-menu">
-            {{navigation type="secondary"}}
-        </div>
-        <div class="gh-foot-meta">
-            Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-        </div>
+<body  class="{{body_class}}">
+    <div id="swup" class="wl-viewport transition-fade" >
+        {{> "layout/header"}}
+        <main class="wl-main">
+            {{{body}}}
+            {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
+        </main>
+        {{> "layout/footer"}}
     </div>
-</footer>
+    {{!-- <foot> --}}
+    {{ghost_foot}}
+    {{!-- Outputs important scripts - should always be included before closing body tag --}}
+    <script defer src="{{asset "built/vendor.js"}}"></script>
+    <script defer src="{{asset "built/app.js"}}"></script>
+    <script async src="//www.instagram.com/embed.js"></script>
 
-</div>
 
-{{!-- <foot> --}}
-{{ghost_foot}}
-{{!-- Outputs important scripts - should always be included before closing body tag --}}
-
+    {{!-- This #block helper will inject a script for a specific page --}}
+    {{{block "scripts"}}}
 </body>
 </html>

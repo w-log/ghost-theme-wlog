@@ -1,5 +1,4 @@
-
-.gh-pagination .pagination {
+.wl-pagination .pagination {
     display: flex;
     justify-content: space-between;
     margin-block: 4vmin;

@@ -1,46 +1,53 @@
 {{!< default}}
 
-<div class="gh-page">
-    <div class="gh-container">
-
+<div class="wl-page">
+    <div class="wl-container">
         {{#author}}
-        <header class="gh-page-head">
+        <header class="wl-page-head">
             {{#if profile_image}}
-                <img class="gh-author-image" src="{{profile_image}}" alt="{{name}}" />
+            <img
+                class="wl-author-image"
+                src="{{ profile_image }}"
+                alt="{{ name }}"
+            />
             {{/if}}
 
-            <h1>{{name}}</h1>
+            <h1>{{ name }}</h1>
             {{#if bio}}
-                <p>{{bio}}</p>
+            <p>{{ bio }}</p>
             {{/if}}
-
-            <div class="gh-author-meta">
-                <div class="gh-author-links">
+            <div class="wl-author-meta">
+                <div class="wl-author-links">
                     {{#if website}}
-                        <a href="{{website}}" target="_blank" rel="noopener">Website</a>
+                    <a href="{{ website }}" target="_blank" rel="noopener"
+                        >Website</a
+                    >
                     {{/if}}
                     {{#if twitter}}
-                        <a href="{{twitter_url}}" target="_blank" rel="noopener">Twitter</a>
+                    <a href="{{ twitter_url }}" target="_blank" rel="noopener"
+                        >Twitter</a
+                    >
                     {{/if}}
                     {{#if facebook}}
-                        <a href="{{facebook_url}}" target="_blank" rel="noopener">Facebook</a>
+                    <a href="{{ facebook_url }}" target="_blank" rel="noopener"
+                        >Facebook</a
+                    >
                     {{/if}}
                 </div>
             </div>
-
             {{#if cover_image}}
-                <img class="gh-page-image" src="{{cover_image}}" alt="{{name}}" />
+            <img
+                class="wl-page-image"
+                src="{{ cover_image }}"
+                alt="{{ name }}"
+            />
             {{/if}}
         </header>
         {{/author}}
-
-        <div class="gh-postfeed">
-        {{#foreach posts}}
-
-            {{> "card"}} {{!-- partials/card.hbs --}}
-
-        {{/foreach}}
+        <div class="wl-postfeed">
+            {{#foreach posts}}
+                {{> "card"}} {{!-- partials/card.hbs --}}
+            {{/foreach}}
         </div>
-
     </div>
 </div>

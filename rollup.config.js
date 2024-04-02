@@ -8,6 +8,9 @@ import babel from '@rollup/plugin-babel';
 // Minifies the bundle
 import terser from '@rollup/plugin-terser';
 
+// iife code spliiting plugin
+import iife from 'rollup-plugin-iife';
+
 // CSS
 // Enable the PostCSS preprocessor
 import postcss from 'rollup-plugin-postcss';
@@ -17,35 +20,46 @@ import atImport from 'postcss-import';
 import postcssPresetEnv from 'postcss-preset-env';
 
 // Development: Enables a livereload server that watches for changes to CSS, JS, and Handlbars files
-import { resolve } from "path";
+import path from 'path';
 import livereload from 'rollup-plugin-livereload';
 
 // Rollup configuration
 export default defineConfig({
-    input: 'assets/js/index.js',
+    input: ['assets/js/app.js'],
     output: {
-        dir: "assets/built",
+        dir: 'assets/built',
         sourcemap: true,
-        format: 'iife',
-        plugins: [terser()]
+        format: 'es',
+        plugins:
+            process.env.BUILD !== 'production' ? [iife()] : [terser(), iife()],
+        assetFileNames: '[name][extname]',
+        manualChunks(id) {
+            if (id.includes('node_modules')) {
+                return 'vendor';
+            }
+        },
+        chunkFileNames: '[name].js',
     },
     plugins: [
-        commonjs(), 
-        nodeResolve(), 
-        babel({ babelHelpers: 'bundled' }),
+        commonjs({
+            include: ['node_modules/**'],
+        }),
+        nodeResolve({
+            extensions: ['.js', '.css'],
+        }),
+        babel({ include: ['assets/js/**/*'], babelHelpers: 'runtime' }),
         postcss({
             extract: true,
             sourceMap: true,
-            plugins: [
-                atImport(),
-                postcssPresetEnv({})
-            ], 
+            name: 'app.css',
+            plugins: [atImport(), postcssPresetEnv({})],
             minimize: true,
         }),
-        process.env.BUILD !== "production" && livereload({
-            watch: resolve('.'),
-            extraExts: ['hbs'],
-            exclusions: [resolve('node_modules')]
-        }),
-    ]
-})
+        process.env.BUILD !== 'production' &&
+            livereload({
+                watch: path.resolve('.'),
+                extraExts: ['hbs', 'js', 'css'],
+                exclusions: [path.resolve('node_modules')],
+            }),
+    ],
+});
