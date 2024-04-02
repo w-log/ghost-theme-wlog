@@ -5,6 +5,7 @@ import SwupHeadPlugin from '@swup/head-plugin';
 
 import setupPost from './setupPost';
 import setupSwiper from './setupSwiper';
+import setupMenu from './setupMenu';
 
 export default function setupSwup() {
     const swup = new Swup({
@@ -41,6 +42,7 @@ export default function setupSwup() {
     });
 
     swup.hooks.on('page:view', () => {
+        setupMenu();
         setupPost();
         setupSwiper();
     });

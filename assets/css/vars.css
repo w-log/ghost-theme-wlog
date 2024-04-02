@@ -71,7 +71,7 @@
 
 [data-theme='dark'] {
     --color-primary: #0f1521;
-    --color-primary-100: hsla(#1c2431);
+    --color-primary-100: #1c2431;
     --color-secondary: #e5e9f2;
 }
 

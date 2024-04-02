@@ -141,9 +141,9 @@
     </script>
 </head>
 <body  class="{{body_class}}">
-    <div id="swup" class="wl-viewport transition-fade" >
+    <div id="swup" class="wl-viewport transition-fade">
         {{> "layout/header"}}
-        <main class="wl-main">
+        <main class="wl-main " >
             {{{body}}}
             {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
         </main>
@@ -155,7 +155,6 @@
     <script defer src="{{asset "built/vendor.js"}}"></script>
     <script defer src="{{asset "built/app.js"}}"></script>
     <script async src="//www.instagram.com/embed.js"></script>
-
 
     {{!-- This #block helper will inject a script for a specific page --}}
     {{{block "scripts"}}}
