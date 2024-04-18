@@ -29,6 +29,7 @@
     line-height: 1.2em;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    gap: 0.6rem;
 }
 
 .wl-card-content {

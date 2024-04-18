@@ -17,3 +17,17 @@
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
+
+.wl-post-meta .wl-tag {
+    gap: 0.8rem;
+    justify-content: center;
+    margin-top: 1.6rem;
+}
+
+.wl-post-meta .wl-tag-item {
+    color: var(--color-primary);
+    background: var(--color-secondary);
+    font-weight: 500;
+    font-size: 1.4rem;
+    padding: 0.4rem 0.8rem;
+}

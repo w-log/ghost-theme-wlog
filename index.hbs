@@ -1,23 +1,26 @@
 {{!< default}}
 <div class="wl-page">
     <div class="wl-container">
-        <section class="wl-main-section">
-            <h2 class="wl-main-section-title">{{@custom.main_title}}</h2>
-            <p class="wl-main-section-description">{{@site.description}}</p>
-        </section>
-        <section class="wl-postfeed">
-            <h3>
-                {{t "Recent articles"}}
-            </h3>
-            {{#foreach posts}}
-                {{> "card-stack" page=../pagination.page }} {{!-- partials/card.hbs --}}
-            {{/foreach}}
-        </section>
-        {{!-- If JS isn't enabled, fallback to standard pagination --}}
-        <noscript>
-            <div class="wl-pagination">
-                {{pagination}}
-            </div>
-        </noscript>
+        {{#tag}}
+        <header class="wl-page-head">
+            <h1>{{name}}</h1>
+            <p>
+                {{#if description}}
+                    {{description}}
+                {{else}}
+                    A collection of {{plural ../pagination.total empty='posts' singular='% post' plural='% posts'}}
+                {{/if}}
+            </p>
+
+            {{#if feature_image}}
+                <img class="wl-page-image" src="{{feature_image}}" alt="{{name}}" />
+            {{/if}}
+        </header>
+        {{/tag}}
+        <div class="wl-postfeed-row">
+        {{#foreach posts}}
+            {{> "card"}} {{!-- partials/card.hbs --}}
+        {{/foreach}}
+        </div>
     </div>
 </div>

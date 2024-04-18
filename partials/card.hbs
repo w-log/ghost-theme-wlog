@@ -46,7 +46,13 @@ Default post card
             </picture>
         {{/if}}
         <div class="wl-card-content">
-            <span class="wl-card-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
+            <span class="wl-card-meta">
+                {{> "tag" }}
+                <span class="wl-card-time">
+                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY년 MMM Do"}}</time>
+                    <span class="bull">&bull;</span>{{reading_time}}
+                </span>
+            </span>
             <h2 class="wl-card-title">{{title}}</h2>
             <p>{{excerpt}}</p>
             <strong>Read more</strong>

@@ -1,20 +1,21 @@
 {{!< default}}
-
-
 <article class="wl-article {{post_class}}">
     {{#post}}
     <header class="wl-header wl-canvas">
         <h1 class="wl-title">{{title}}</h1>
         <span class="wl-post-meta">
-            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYYY MMM Do"}}</time>
-            <span>
-                <span class="bull">&bull;</span> {{reading_time minute=(t '1 min read') minutes=(t "% min read")}}
+
+            <span class="wl-post-time">
+                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY년 MMM Do"}}</time>
+                <span>
+                    <span class="bull">&bull;</span> {{reading_time minute=(t '1 min read') minutes=(t "% min read")}}
+                </span>
             </span>
+            {{> "tag" }}
         </span>
         {{!-- {{#if custom_excerpt}}
         <p class="wl-excerpt">{{custom_excerpt}}</p>
         {{/if}} --}}
-
         {{#if feature_image}}
         <figure class="wl-feature-image">
             <picture>

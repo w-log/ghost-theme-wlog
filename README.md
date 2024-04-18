@@ -33,9 +33,11 @@ We've documented this starter theme pretty heavily so that it should be possible
 
 ## TODO
 
--   [ ] 관련 게시글
--   [ ] 이력 및 JD 카테고리 전용 템플릿
--   [ ] 메인 페이지 최근 글 목록
+-   [x] 관련 게시글
+-   [x] 이력 및 JD 카테고리 전용 템플릿
+-   [x] 메인 페이지 최근 글 목록
+-   [ ] Announcement bar 지원
+-   [ ] Blog, Tag SPA 지원
 
 &nbsp;
 

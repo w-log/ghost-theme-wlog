@@ -2,12 +2,12 @@ import * as tocbot from 'tocbot';
 
 export default function setupPost() {
     const $postTemplate = document.querySelector('.post-template');
-    console.log($postTemplate);
+
     if (!$postTemplate) {
         return;
     }
 
-    tocbot.init({
+    tocbot.refresh({
         // Where to render the table of contents.
         tocSelector: '.wl-toc',
         // Where to grab the headings to build the table of contents.
