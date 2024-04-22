@@ -103,10 +103,6 @@
             "main_title": {
                 "type": "text",
                 "group": "homepage"
-            },
-            "no_image": {
-                "type": "image",
-                "group": "site-wide"
             }
         }
     },
