@@ -47,3 +47,34 @@ html.is-animating .transition-fade {
 #post-content.is-leaving {
     transform: translateX(calc(40px * var(--direction) * -1));
 }
+
+#category-post-list.is-changing {
+    --duration-leave: 150ms;
+    --duration-enter: 400ms;
+    transition-duration: var(--duration-enter);
+}
+
+#category-post-list.is-leaving {
+    transition-duration: var(--duration-leave);
+}
+#category-post-list.is-changing .wl-card {
+    transition-property: opacity, transform;
+    transition-duration: var(--duration-enter);
+    transition-timing-function: cubic-bezier(
+        0.23,
+        1,
+        0.32,
+        1
+    ); /* easeOutQuint */
+}
+
+#category-post-list.is-animating .wl-card {
+    opacity: 0;
+    transform: scale(0.75);
+}
+
+/* Change easing and duration for the leave-phase */
+#category-post-list.is-leaving .wl-card {
+    transition-timing-function: ease-in;
+    transition-duration: var(--duration-leave);
+}

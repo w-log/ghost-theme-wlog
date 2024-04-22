@@ -24,6 +24,10 @@
     grid-column: main-start / main-end;
 }
 
+.wl-canvas ~ .wl-canvas {
+    margin-top: 8vmin;
+}
+
 .kg-content-wide > div {
     grid-column: wide-start / wide-end;
 }

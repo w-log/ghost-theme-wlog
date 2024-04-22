@@ -55,7 +55,6 @@ body.overflow-hidden {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
     padding-top: var(--header-height);
 }
 
@@ -76,9 +75,9 @@ body.overflow-hidden {
 .wl-postfeed {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 2.2rem;
     grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
-    padding: 8vmin 0;
+    padding: 8vmin 0 4vmin;
 }
 
 .wl-postfeed > *:first-child {
@@ -88,8 +87,8 @@ body.overflow-hidden {
 .wl-postfeed-row {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
 }
 
 .wl-container {
@@ -155,7 +154,7 @@ body.overflow-hidden {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 3rem 0 0;
+    margin: 2rem 0 0;
     /* font-size: 1.6rem; */
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -292,7 +291,13 @@ dialog#post::backdrop {
     }
 
     .wl-postfeed-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .wl-postfeed-row {
         grid-template-columns: 1fr;
-        gap: 1rem;
     }
 }

@@ -1,12 +1,16 @@
-{{#get "posts" limit="3" filter="tags:[{{post.tags}}]+id:-{{post.id}}" order="published_at DESC" include="tags,authors"  as |related|}}
-  {{#if related}}
-    <section class="wl-recommended">
-      <div class="wl-container in-recommended">
-        <h3 class="m-section-title in-recommended">{{t "Recommended for you"}}</h3>
-        <div class="wl-recommended-articles wl-grid">
-          {{!-- {{> "loop" posts=related}} --}}
+{{#get "posts" limit="3" filter="tags:[{{post.tags}}]+id:-{{post.id}}" order="published_at DESC" include="tags,authors" as |related|}}
+  <section class="wl-related-content">
+    {{#if related}}
+      <h2 id="{{t "Recommended for you"}}">{{t "Recommended for you"}}</h2>
+      <div class="swiper js-related-slider">
+        <div class="swiper-wrapper">
+            {{#foreach related}}
+                {{> "card" custom_class="swiper-slide" }}
+            {{/foreach}}
         </div>
+        <div class="swiper-pagination"></div>
       </div>
-    </section>
-  {{/if}}
+    {{/if}}
+  </section>
 {{/get}}
+

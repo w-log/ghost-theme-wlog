@@ -4,7 +4,7 @@ Default post card
 <article class="wl-card {{post_class}} {{custom_class}}">
     <a class="wl-card-link" href="{{url}}">
         {{#if feature_image}}
-            <picture class="wl-card-picture">
+            <picture class="wl-card-picture ">
               <source
                 srcset="
                 {{img_url feature_image size="xxs" format="avif"}} 30w,
@@ -44,17 +44,23 @@ Default post card
                 {{^if @first}}loading="lazy"{{/if}}
               >
             </picture>
+        {{else}}
+            <picture class="wl-card-picture ">
+
+            </picture>
         {{/if}}
         <div class="wl-card-content">
+            {{^if hide_meta}}
             <span class="wl-card-meta">
-                {{> "tag" }}
+                {{> "post-tag" }}
                 <span class="wl-card-time">
                     <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY년 MMM Do"}}</time>
                     <span class="bull">&bull;</span>{{reading_time}}
                 </span>
             </span>
+            {{/if}}
             <h2 class="wl-card-title">{{title}}</h2>
-            <p>{{excerpt}}</p>
+            <p class="line-clamp" style="--line-clamp: 4;">{{excerpt}}</p>
             <strong>Read more</strong>
         </div>
     </a>

@@ -1,6 +1,41 @@
 import * as tocbot from 'tocbot';
 
-export default function setupPost() {
+// delegate 한번만 수행되도록 하는 변수
+let isSetupDelegate = false;
+
+const GHOST_CARD_TOGGLE_SELECTOR = [
+    '.kg-toggle-heading, .kg-toggle-card-icon, kg-toggle-card',
+].join(', ');
+const GHOST_CARD_VIDEO_SELECTOR = ['.kg-card'];
+
+export const setupDelgate = () => {
+    if (isSetupDelegate) {
+        return;
+    }
+
+    document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target.closest(GHOST_CARD_TOGGLE_SELECTOR)) {
+            const $dropdown = target.closest('.kg-toggle-card');
+            console.log($dropdown);
+            const isOpen =
+                $dropdown.getAttribute('data-kg-toggle-state') === 'open';
+            $dropdown.setAttribute(
+                'data-kg-toggle-state',
+                isOpen ? 'close' : 'open',
+            );
+        }
+    });
+
+    isSetupDelegate = true;
+};
+
+/**
+ *
+ * @param {boolean} isDelegate - run delegate event
+ * @returns
+ */
+export default function setupPost(isDelegate = false) {
     const $postTemplate = document.querySelector('.post-template');
 
     if (!$postTemplate) {
@@ -18,4 +53,6 @@ export default function setupPost() {
         hasInnerContainers: true,
         includeTitleTags: true,
     });
+
+    if (isDelegate) setupDelgate();
 }

@@ -1,11 +1,10 @@
 {{#get "pages" limit="2" filter="tags:[{{tags.[0].slug}}]+id:-{{id}}"  order="published_at DESC" include="tags" as |related|}}
+  <section class="wl-postfeed-row wl-related-content">
     {{#if related}}
-        <div class="wl-related">
-            <div class="wl-postfeed-row">
-                {{#foreach related}}
-                    {{> "card"}} {{!-- partials/card.hbs --}}
-                {{/foreach}}
-            </div>
-        </div>
+        {{#foreach related}}
+            {{> "card" }}
+        {{/foreach}}
     {{/if}}
+  </section>
 {{/get}}
+

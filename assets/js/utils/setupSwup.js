@@ -1,6 +1,7 @@
 import Swup from 'swup';
 import SwupBodyClassPlugin from '@swup/body-class-plugin';
 import SwupHeadPlugin from '@swup/head-plugin';
+import FragmentPlugin from '@swup/fragment-plugin';
 
 import setupPost from './setupPost';
 import setupSwiper from './setupSwiper';
@@ -19,12 +20,23 @@ export default function setupSwup() {
             new SwupHeadPlugin({
                 persistAssets: true,
             }),
+            new FragmentPlugin({
+                debug: process.env.NODE_ENV === 'development',
+                rules: [
+                    {
+                        from: ['/tag/:slug', '/blog/'],
+                        to: ['/tag/:slug', '/blog/'],
+                        containers: ['#category-post-list'],
+                        // scroll: '#category-post-list',
+                    },
+                ],
+            }),
         ],
     });
 
     swup.hooks.on('page:view', () => {
         updateActiveMenu(window.location.pathname);
-        setupPost();
+        setupPost(true);
         setupSwiper();
     });
 }

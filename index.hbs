@@ -1,26 +1,15 @@
-{{!< default}}
-<div class="wl-page">
+{{!< default }}
+<div id="category-post-list" class="wl-page" >
     <div class="wl-container">
-        {{#tag}}
-        <header class="wl-page-head">
-            <h1>{{name}}</h1>
-            <p>
-                {{#if description}}
-                    {{description}}
-                {{else}}
-                    A collection of {{plural ../pagination.total empty='posts' singular='% post' plural='% posts'}}
-                {{/if}}
-            </p>
-
-            {{#if feature_image}}
-                <img class="wl-page-image" src="{{feature_image}}" alt="{{name}}" />
-            {{/if}}
-        </header>
-        {{/tag}}
+        {{#get "tags" limit="all"}}
+            {{> "post-tag" all_text="All" add_class="wl-category" link_tag=true use_all=true tag=../tag}} {{!-- partials/post-tag.hbs --}}
+        {{/get}}
         <div class="wl-postfeed-row">
         {{#foreach posts}}
             {{> "card"}} {{!-- partials/card.hbs --}}
         {{/foreach}}
         </div>
+        {{pagination}}
     </div>
 </div>
+
