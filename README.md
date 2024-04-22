@@ -33,9 +33,11 @@ We've documented this starter theme pretty heavily so that it should be possible
 
 ## TODO
 
--   [ ] 관련 게시글
--   [ ] 이력 및 JD 카테고리 전용 템플릿
--   [ ] 메인 페이지 최근 글 목록
+-   [x] 관련 게시글
+-   [x] 이력 및 JD 카테고리 전용 템플릿
+-   [x] 메인 페이지 최근 글 목록
+-   [x] Blog, Tag SPA 지원
+-   [ ] Announcement bar 지원
 
 &nbsp;
 
@@ -43,12 +45,11 @@ We've documented this starter theme pretty heavily so that it should be possible
 
 The main files are:
 
--   [`default.hbs`](default.hbs) - The main template file
--   [`index.hbs`](index.hbs) - Used for the home page
--   [`post.hbs`](post.hbs) - Used for individual posts
--   [`page.hbs`](page.hbs) - Used for individual pages
--   [`tag.hbs`](tag.hbs) - Used for tag archives
--   [`author.hbs`](author.hbs) - Used for author archives
+-   [`default.hbs`](default.hbs) - 메인 레이아웃 파일
+-   [`index.hbs`](index.hbs) - blog 페이지, tag 페이지 공통파일
+-   [`post.hbs`](post.hbs) - 상세 게시글 파일
+-   [`page.hbs`](page.hbs) - 상세 페이지 파일
+-   [`home.hbs`](home.hbs) - 메인 home 페이지 파일
 
 One neat trick is that you can also create custom one-off templates just by adding the slug of a page to a template file. For example:
 

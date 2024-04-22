@@ -1,0 +1,16 @@
+<ul class="wl-tag {{add_class}}">
+    {{#if use_all}}
+        <li class="wl-tag-item {{#unless tag}}active{{/unless}}">
+            <a class="wl-tag-link" href="{{@site.url}}/blog/"  {{#unless tag}}aria-current="page"{{/unless}}>{{all_text}}</a>
+        </li>
+    {{/if}}
+    {{#foreach tags}}
+        <li class="wl-tag-item {{#match ../tag.slug slug}}active{{/match}} {{#if accent_color}}has-color{{/if}}" style="--tag-accent-color: {{accent_color}};" >
+            {{#if ../link_tag}}
+                <a class="wl-tag-link" href="{{url}}" {{#match ../tag.slug slug}}aria-current="page"{{/match}}>{{name}}</a>
+            {{else}}
+                <span class="wl-tag-text">{{name}}</span>
+            {{/if}}
+        </li>
+    {{/foreach}}
+</ul>

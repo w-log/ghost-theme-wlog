@@ -1,22 +1,22 @@
-// JavaScript files are compiled and minified during the build process to the assets/built folder. See available scripts in the package.json file.
-
 // Import CSS
 import '../css/app.css';
 
 // Import JS
-import './post';
 import setupMenu from './utils/setupMenu';
+import setupPagination from './utils/setupPagination';
 import setupPost from './utils/setupPost';
 import setupSwiper from './utils/setupSwiper';
 import setupSwup from './utils/setupSwup';
-// import infiniteScroll from './utils/infiniteScroll';
+
+// On load
 
 const onLoad = () => {
-    // infiniteScroll();
     setupMenu();
     setupSwiper();
     setupSwup();
-    setupPost();
+    setupPost(false);
+    setupPagination();
 };
 
-document.addEventListener('DOMContentLoaded', onLoad);
+// document.addEventListener('DOMContentLoaded', onLoad);
+onLoad();

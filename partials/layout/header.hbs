@@ -1,4 +1,4 @@
-<header id="wl-head" class="wl-head">
+<header id="wl-head" class="wl-head" data-swup-persist="header">
     <nav class="wl-head-inner wl-container">
         <div class="wl-head-brand">
             <a class="wl-head-logo" href="{{@site.url}}">
@@ -28,9 +28,9 @@
                     </div>
                     {{#if @site.members_enabled}}
                         {{^if @member}}
-                        <a class="wl-button" href="{{@site.signup_url}}">Subscribe</a>
+                        <a class="wl-button" href="{{@site.signup_url}}">{{t "Subscribe"}}</a>
                         {{else}}
-                        <a class="wl-button" href="#/portal/account">Account</a>
+                        <a class="wl-button" href="#/portal/account">{{t "Account"}}</a>
                         {{/if}}
                     {{/if}}
                 </div>
@@ -42,7 +42,7 @@
                 <span data-swup-persist="search">
                     {{search}}
                 </span>
-                <a class="wl-mobile-menu-button js-mobile-menu-toggle" role="button" data-swup-persist="darkmode">
+                <a class="wl-mobile-menu-button js-mobile-menu-toggle" role="button">
                     {{> "icons/menu" }}
                 </a>
             </div>
@@ -54,9 +54,9 @@
                     {{navigation}}
                     {{#if @site.members_enabled}}
                         {{^if @member}}
-                        <a class="wl-button" href="{{@site.signup_url}}">Subscribe</a>
+                        <a class="wl-button" href="{{@site.signup_url}}">{{t "Subscribe"}}</a>
                         {{else}}
-                        <a class="wl-button" href="#/portal/account">Account</a>
+                        <a class="wl-button" href="#/portal/account">{{t "Account"}}</a>
                         {{/if}}
                     {{/if}}
                     <hr />

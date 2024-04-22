@@ -29,22 +29,22 @@
     padding: var(--spacing-1) var(--spacing-2);
 }
 
-.wl-resume-content + .wl-resume-content {
+.wl-related-content + .wl-related-content {
     margin-top: 6vmin;
 }
 
-.wl-resume-content h3 ~ * {
-    margin-top: 1.5rem;
+.wl-related-content h2 ~ * {
+    margin-top: 1.6rem;
 }
 
-.wl-resume-content .wl-card-title {
+.wl-related-content .wl-card-title {
     font-size: 2.4rem;
 }
 
-.wl-resume-content .wl-card-meta {
+.wl-related-content .wl-card-meta {
     display: none;
 }
 
-.wl-resume-content .post-meta .wl-resume-content h3 {
+.wl-related-content .post-meta .wl-related-content h3 {
     margin-top: 1.5rem;
 }

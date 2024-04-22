@@ -1,0 +1,13 @@
+routes:
+    /: index
+    /blog/:
+        controller: channel
+        filter: tag:[blog,canvas]
+collections:
+    # /blog/:
+    # permalink: /{slug}/
+    # template: tag:blog
+    # data: tag.blog
+taxonomies:
+    tag: /tag/{slug}/
+    #author: /author/{slug}/

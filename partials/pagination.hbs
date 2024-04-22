@@ -1,0 +1,16 @@
+{{!
+This pagination template is used to navigate through newer and older articles.
+}}
+<div id="pagination" class="wl-pagination">
+  {{#if next}}
+    <button
+      id="load-more"
+      class="wl-button wl-button-fit wl-button-rounded wl-button-large"
+      data-loading-text="{{t "Loading"}}"
+      data-next-page="{{page_url next}}"
+      data-max-page="{{pages}}"
+    >
+    {{t "More"}}
+    </button>
+  {{/if}}
+</div>

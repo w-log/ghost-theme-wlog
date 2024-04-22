@@ -1,7 +1,7 @@
 /* Buttons
 /* ---------------------------------------------------------- */
 .wl-button {
-    display: inline-block;
+    display: inline-flex;
     min-width: 7.6rem;
     height: var(--height);
     padding: 0 2rem;
@@ -12,15 +12,27 @@
     font-size: 1.4rem;
     font-weight: var(--font-medium);
     line-height: var(--height);
-    text-align: center;
     text-decoration: none;
+    align-items: center;
+    justify-content: center;
     white-space: nowrap;
     appearance: none;
     transition: 0.4s ease;
+    gap: 0.4rem;
 }
 
 .wl-button.wl-button-fit {
     width: 100%;
+    justify-content: center;
+}
+
+.wl-button svg {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.wl-button-rounded {
+    border-radius: 9999px;
 }
 
 .wl-button.wl-button-small {
@@ -41,6 +53,7 @@
 .wl-button:disabled {
     pointer-events: none;
     opacity: 0.4;
+    cursor: not-allowed;
 }
 
 .wl-button {

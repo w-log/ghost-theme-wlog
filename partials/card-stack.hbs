@@ -7,10 +7,12 @@ Default post card stack type
             <h2 class="wl-card-title">{{title}}</h2>
             <p class="line-clamp" style="--line-clamp: 2;">{{excerpt}}</p>
             <div class="wl-card-meta">
-                {{> "tag" }}
+                {{> "post-tag" }}
                 <span class="wl-card-time">
-                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YY/MM/DD"}}</time>
-                    <span class="bull">&bull;</span> {{reading_time}}
+                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY년 MMM Do"}}</time>
+                    <span>
+                        <span class="bull">&bull;</span> {{reading_time minute=(t '1 min read') minutes=(t "% min read")}}
+                    </span>
                 </span>
             </div>
         </div>

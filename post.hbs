@@ -1,20 +1,20 @@
 {{!< default}}
-
-
 <article class="wl-article {{post_class}}">
     {{#post}}
     <header class="wl-header wl-canvas">
         <h1 class="wl-title">{{title}}</h1>
         <span class="wl-post-meta">
-            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYYY MMM Do"}}</time>
-            <span>
-                <span class="bull">&bull;</span> {{reading_time minute=(t '1 min read') minutes=(t "% min read")}}
+            <span class="wl-post-time">
+                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY년 MMM Do"}}</time>
+                <span>
+                    <span class="bull">&bull;</span> {{reading_time minute=(t '1 min read') minutes=(t "% min read")}}
+                </span>
             </span>
+            {{> "post-tag" link_tag=true}}
         </span>
-        {{!-- {{#if custom_excerpt}}
+        {{#if custom_excerpt}}
         <p class="wl-excerpt">{{custom_excerpt}}</p>
-        {{/if}} --}}
-
+        {{/if}}
         {{#if feature_image}}
         <figure class="wl-feature-image">
             <picture>
@@ -64,6 +64,9 @@
         {{content}}
     </div>
     {{/post}}
+    <div class="wl-content wl-canvas">
+        {{> "related-post"}}
+    </div>
     <footer class="wl-footer wl-canvas">
         {{#if comments}}
         <section class="wl-post-comments">
@@ -76,7 +79,6 @@
             <div class="wl-post-progress-bar js-post-progress"></div>
         </div>
     </div>
-    {{> "related-post"}}
 </article>
 
 {{!-- <aside class="wl-readmore">

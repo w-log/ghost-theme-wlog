@@ -1,10 +1,21 @@
 import { lockBodyScroll, unlockBodyScroll } from './helper';
 
+const $mobileMenu = document.getElementById('wl-mobile-menu');
+
+const closeMenu = () => {
+    $mobileMenu.classList.remove('is-active');
+    unlockBodyScroll();
+};
+
+const openMenu = () => {
+    $mobileMenu.classList.add('is-active');
+    lockBodyScroll();
+};
+
 // Toggle the menu open and close when on mobile
 export default function setupMenu() {
     const initialTheme = document.documentElement.getAttribute('data-theme');
 
-    const $mobileMenu = document.getElementById('wl-mobile-menu');
     const $mobileMenuToggles = document.querySelectorAll(
         '.js-mobile-menu-toggle',
     );
@@ -29,24 +40,36 @@ export default function setupMenu() {
     $mobileMenuToggles.forEach(function ($toggle) {
         $toggle.addEventListener('click', function () {
             if ($mobileMenu.classList.contains('is-active')) {
-                $mobileMenu.classList.remove('is-active');
-                unlockBodyScroll();
+                closeMenu();
             } else {
-                $mobileMenu.classList.add('is-active');
-                lockBodyScroll();
+                openMenu();
             }
         });
     });
 
-    $mobileMenuCloses.forEach(function ($close) {
-        $close.addEventListener('click', function () {
-            $mobileMenu.classList.remove('is-active');
-            unlockBodyScroll();
-        });
-    });
+    $mobileMenuCloses.forEach(($close) =>
+        $close.addEventListener('click', closeMenu),
+    );
+    $mobileMenuDim.addEventListener('click', closeMenu);
 
-    $mobileMenuDim.addEventListener('click', function () {
+    // add state change close menu
+    window.onpopstate = () => {
         $mobileMenu.classList.remove('is-active');
         unlockBodyScroll();
-    });
+    };
 }
+
+export const updateActiveMenu = (currentPathname) => {
+    const $menuItems = document.querySelectorAll('.nav a');
+
+    $menuItems.forEach(($item) => {
+        const itemPathname = new URL($item.getAttribute('href')).pathname;
+        if (itemPathname === currentPathname) {
+            $item.closest('[class^="nav"]')?.classList.add('nav-current');
+        } else {
+            $item.closest('[class^="nav"]')?.classList.remove('nav-current');
+        }
+    });
+
+    closeMenu();
+};

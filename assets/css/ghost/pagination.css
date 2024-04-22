@@ -1,5 +1,8 @@
-.wl-pagination .pagination {
+.wl-pagination {
     display: flex;
-    justify-content: space-between;
-    margin-block: 4vmin;
+    align-items: center;
+    justify-content: center;
+    padding: 6vmin 0;
+    max-width: 52rem;
+    margin: 0 auto;
 }

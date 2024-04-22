@@ -2,7 +2,7 @@ import Swiper from 'swiper';
 
 export default function setupSwiper() {
     // resume slider
-    new Swiper('.js-resume-slider', {
+    new Swiper('.js-related-slider', {
         slidesPerView: 1.6,
         spaceBetween: 16,
         loop: false,

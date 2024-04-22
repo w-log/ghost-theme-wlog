@@ -53,6 +53,8 @@
     </header>
     <div class="wl-content wl-canvas">
         {{content}}
+    </div>
+    <div class="wl-content wl-canvas">
         {{#get "pages" filter="tags:[hash-resume-work-experience]" order="published_at DESC" include="tags,authors"  as |works|}}
             {{#if works}}
                 {{> "resume-content" title=(t 'Work Experience') pages=works}}
@@ -67,6 +69,5 @@
     <div class="last-updated">
         <p>last updated <time datetime="{{date updated_at format="YYYY-MM-DD"}}">{{date updated_at format="YY/MM/D"}}</time></p>
     </div>
-    <template id="post"></template>
 </article>
 {{/post}}

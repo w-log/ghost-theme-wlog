@@ -1,16 +1,20 @@
 import Swup from 'swup';
-import FragmentPlugin from '@swup/fragment-plugin';
 import SwupBodyClassPlugin from '@swup/body-class-plugin';
 import SwupHeadPlugin from '@swup/head-plugin';
+import FragmentPlugin from '@swup/fragment-plugin';
 
 import setupPost from './setupPost';
 import setupSwiper from './setupSwiper';
-import setupMenu from './setupMenu';
+import { updateActiveMenu } from './setupMenu';
 
 export default function setupSwup() {
     const swup = new Swup({
         containers: ['#swup'],
         cache: true,
+        linkSelector:
+            'a[href^="' +
+            window.location.origin +
+            '"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup])',
         plugins: [
             new SwupBodyClassPlugin(),
             new SwupHeadPlugin({
@@ -20,21 +24,10 @@ export default function setupSwup() {
                 debug: process.env.NODE_ENV === 'development',
                 rules: [
                     {
-                        from: ['/resume/'],
-                        to: '/:slug/',
-                        containers: ['#post'],
-                        name: 'open-post',
-                    },
-                    {
-                        from: '/:slug/',
-                        to: ['/resume/'],
-                        containers: ['#post'],
-                        name: 'close-post',
-                    },
-                    {
-                        from: '/:slug/',
-                        to: '/:slug/',
-                        containers: ['#post-content'],
+                        from: ['/tag/:slug', '/blog/'],
+                        to: ['/tag/:slug', '/blog/'],
+                        containers: ['#category-post-list'],
+                        // scroll: '#category-post-list',
                     },
                 ],
             }),
@@ -42,8 +35,8 @@ export default function setupSwup() {
     });
 
     swup.hooks.on('page:view', () => {
-        setupMenu();
-        setupPost();
+        updateActiveMenu(window.location.pathname);
+        setupPost(true);
         setupSwiper();
     });
 }
