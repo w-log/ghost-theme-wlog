@@ -289,6 +289,9 @@ dialog#post::backdrop {
 }
 
 @media (max-width: 768px) {
+    .wl-header {
+        padding: 0 0 4vmin;
+    }
     .wl-author-meta {
         font-size: 1.6rem;
     }

@@ -35,7 +35,7 @@
     border-top-right-radius: 0.8rem;
     margin: calc(var(--card-padding) * -1) calc(var(--card-padding) * -1) 0;
     overflow: hidden;
-    margin-bottom: 4vmin;
+    margin-bottom: var(--card-padding);
 }
 
 .wl-card-picture::before {

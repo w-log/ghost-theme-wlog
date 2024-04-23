@@ -6,6 +6,10 @@
     position: relative;
 }
 
+.wl-sidebar {
+    margin-bottom: 6vmin;
+}
+
 .toc-list {
     overflow: hidden;
     list-style: none;
