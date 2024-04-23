@@ -1,7 +1,8 @@
 # Ghost theme wlog
 
 개발자 개인 포트폴리오 및 블로깅을 위해 만든 Ghost 테마입니다.
-이 테마는 Swup과 통합되어 완벽한 Single page application 경험을 제공합니다.
+<br />
+이 테마는 [Swup](https://swup.js.org/)과 통합되어 완벽한 Single page application 경험을 제공합니다.
 
 &nbsp;
 
