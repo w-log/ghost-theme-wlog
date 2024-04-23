@@ -29,7 +29,7 @@
 
 🚢&nbsp;[Github Actions](.github/workflows/deploy-theme.yml)를 이용한 테마 자동 배포 [자동으로 테마를 배포하는 방법에 대해 자세히 알아보기](https://github.com/TryGhost/action-deploy-theme)
 
-🚀&nbsp;[Swup](https://swup.js.org/) 라이브러리를 통합하여 Ghost 환경에서 Single page application처럼 동작합니다.
+🚀&nbsp;[Swup](https://swup.js.org/) 라이브러리를 통합하여 Ghost 환경에서 Single page application로 동작합니다.
 
 ## TODO
 
@@ -71,4 +71,48 @@
 
 ### 테마 실행 패키지 설치
 
-> 사전에 Docker가 실행중인지 꼭 확인해주세요.
+> 실행 전 Docker running 상태인지 꼭 확인해주세요.
+
+```bash
+yarn # or npm install
+```
+
+### 시작 개발 모드
+
+도커가 실행중인 상태에서 아래 커맨드 입력
+
+```bash
+npm run docker:dev
+```
+
+스타일, 스크립트 및 Handlebars 파일을 수정하면 변경 사항이 자동으로 브라우저에 표시됩니다. CSS 및 JavaScript는 `built` 폴더에 컴파일되어 출력됩니다.
+
+개발 모드를 종료하려면 터미널에서 `ctrl + c`를 누르세요.
+
+&nbsp;
+
+### 테마 빌드, 압축 및 테스트하기
+
+CSS와 JavaScript 에셋을 프로덕션을 위해 컴파일하려면 다음 명령어를 사용하세요.
+
+```bash
+npm run build
+```
+
+아래 커맨드는 zip 아카이브를 생성합니다.
+
+```bash
+npm run zip
+```
+
+Ghost 테마의 호환성을 테스트하기 위해 아래 커맨드를 사용하세요.
+
+```bash
+npm run test
+```
+
+&nbsp;
+
+## Copyright & License
+
+Copyright (c) 2023-2024 W-log - Released under the [MIT license](LICENSE).
