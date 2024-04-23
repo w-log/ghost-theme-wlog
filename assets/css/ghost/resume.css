@@ -30,11 +30,11 @@
 }
 
 .wl-related-content + .wl-related-content {
-    margin-top: 6vmin;
+    margin-top: 8vmin;
 }
 
 .wl-related-content h2 ~ * {
-    margin-top: 1.6rem;
+    margin-top: 1.4rem;
 }
 
 .wl-related-content .wl-card-title {

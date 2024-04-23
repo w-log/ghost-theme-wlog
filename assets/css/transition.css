@@ -44,3 +44,9 @@ html.is-changing {
     transition-delay: calc(var(--delay) * var(--index, 0));
     transition-duration: var(--duration-leave);
 }
+
+@media (max-width: 768px) {
+    .swup-progress-bar {
+        height: 2px;
+    }
+}
