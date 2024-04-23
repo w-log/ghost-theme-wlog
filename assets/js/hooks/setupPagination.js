@@ -8,12 +8,13 @@ const fetchPosts = async (url) => {
 
 const appendPosts = (html) => {
     const parse = document.createRange().createContextualFragment(html);
-    const postContainerSelector = '#category-post-list .wl-postfeed-row';
+
     const $virtualPosts = parse.querySelectorAll('#category-post-list .post');
+    const $currentPosts = document.querySelector(
+        '#category-post-list .wl-postfeed-row',
+    );
 
-    const $currentPosts = document.querySelector(postContainerSelector);
-
-    if ($virtualPosts && $currentPosts) {
+    if ($currentPosts && $virtualPosts?.length) {
         $currentPosts.append(...$virtualPosts);
     }
 

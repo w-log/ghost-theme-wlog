@@ -1,0 +1,41 @@
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+
+[data-letter-animation] > span {
+    display: inline-block;
+    white-space: break-spaces;
+}
+
+@media (--motionOK) {
+    [data-letter-animation='hover'] {
+        &:hover > span {
+            transform: scale(0.95);
+        }
+
+        & > span {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.15);
+            }
+        }
+    }
+}
+
+@media (--motionOK) {
+    [data-letter-animation='breath'] > span {
+        animation: breath 1200ms ease calc(var(--index) * 100 * 1ms) infinite
+            alternate;
+    }
+}
+
+@keyframes breath {
+    from {
+        animation-timing-function: ease-out;
+    }
+    to {
+        transform: translateY(-5px) scale(1.25);
+        text-shadow: 0 0 25px var(--glow-color);
+        animation-timing-function: ease-in-out;
+    }
+}

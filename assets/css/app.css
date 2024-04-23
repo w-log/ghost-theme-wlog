@@ -11,6 +11,7 @@ production stylesheet in assets/built/screen.css using: npm run dev
 /* Base components */
 @import 'vars.css';
 @import 'transition.css';
+@import 'letter.css';
 @import 'components/global.css';
 @import 'components/forms.css';
 @import 'components/buttons.css';

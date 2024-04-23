@@ -5,7 +5,7 @@
                 {{#if @site.logo}}
                     <img src="{{@site.logo}}" alt="{{@site.title}}" />
                 {{else}}
-                    {{@site.title}}
+                    <span data-split-by="letter" data-letter-animation="hover">{{@site.title}}</span>
                 {{/if}}
             </a>
         </div>

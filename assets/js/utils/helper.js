@@ -11,3 +11,15 @@ export const unlockBodyScroll = () => {
         document.body.classList.remove('overflow-hidden')
     );
 };
+
+const toSpan = (text, index) => {
+    const node = document.createElement('span');
+    node.textContent = text;
+    node.style.setProperty('--index', index);
+
+    return node;
+};
+
+export const byLetter = (text) => [...text].map(toSpan);
+
+export const byWord = (text) => text.split(' ').map(toSpan);

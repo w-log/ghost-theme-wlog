@@ -1,4 +1,4 @@
-import { lockBodyScroll, unlockBodyScroll } from './helper';
+import { lockBodyScroll, unlockBodyScroll } from '../utils/helper';
 
 const $mobileMenu = document.getElementById('wl-mobile-menu');
 

@@ -9,21 +9,24 @@
 
 .wl-card-image {
     width: 100%;
-    /* max-height: 700px; */
+
     object-fit: cover;
     aspect-ratio: 1 / 1;
 }
 
 .wl-card {
     --card-padding: 1.4rem;
-    padding: var(--card-padding);
     border-radius: 0.9rem;
+    padding: var(--card-padding);
     background: var(--color-secondary);
     color: var(--color-primary);
 }
 
 .wl-card-image:first-of-type {
     aspect-ratio: 16 / 9;
+}
+
+.wl-card.no-image .wl-card-picture {
 }
 
 .wl-card-picture {

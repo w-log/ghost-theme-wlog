@@ -61,6 +61,9 @@
     --spacing-18: 7.2rem;
     --spacing-19: 7.6rem;
     --spacing-20: 8rem;
+
+    /** swup overlay vars */
+    --swup-overlay-theme-color: var(--color-primary);
 }
 
 [data-theme='light'] {
