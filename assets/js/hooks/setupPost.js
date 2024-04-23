@@ -6,7 +6,6 @@ let isSetupDelegate = false;
 const GHOST_CARD_TOGGLE_SELECTOR = [
     '.kg-toggle-heading, .kg-toggle-card-icon, kg-toggle-card',
 ].join(', ');
-const GHOST_CARD_VIDEO_SELECTOR = ['.kg-card'];
 
 export const setupDelgate = () => {
     if (isSetupDelegate) {
@@ -17,7 +16,7 @@ export const setupDelgate = () => {
         const target = event.target;
         if (target.closest(GHOST_CARD_TOGGLE_SELECTOR)) {
             const $dropdown = target.closest('.kg-toggle-card');
-            console.log($dropdown);
+
             const isOpen =
                 $dropdown.getAttribute('data-kg-toggle-state') === 'open';
             $dropdown.setAttribute(
@@ -32,7 +31,7 @@ export const setupDelgate = () => {
 
 /**
  *
- * @param {boolean} isDelegate - run delegate event
+ * @param {boolean} isDelegate run delegate event flag
  * @returns
  */
 export default function setupPost(isDelegate = false) {
@@ -51,7 +50,7 @@ export default function setupPost(isDelegate = false) {
         headingSelector: 'h1, h2, h3, h4',
         // Ensure correct positioning
         hasInnerContainers: true,
-        includeTitleTags: true,
+        // includeTitleTags: true,
     });
 
     if (isDelegate) setupDelgate();

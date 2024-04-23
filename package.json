@@ -2,7 +2,7 @@
     "name": "ghost-theme-wlog",
     "description": "Ghost based custom theme",
     "demo": "https://w-log.dev",
-    "version": "0.0.1",
+    "version": "0.1.1",
     "engines": {
         "ghost": ">=5.0.0"
     },
@@ -15,7 +15,7 @@
         "build": "rollup -c --environment BUILD:production",
         "docker:dev": "concurrently --names 'DOCKER,ROLLUP' --prefix-colors 'yellow,magenta' --kill-others \"docker-compose up\" \"npm run dev\"",
         "zip": "npm run build && bestzip $npm_package_name.zip assets/* partials/* members/* *.hbs package.json",
-        "test": "npx gscan .",
+        "test": "gscan .",
         "pretest": "npm run build"
     },
     "author": {
@@ -52,6 +52,7 @@
         "@rollup/plugin-terser": "^0.4.0",
         "bestzip": "^2.2.1",
         "concurrently": "^8.2.2",
+        "gscan": "^4.43.0",
         "postcss": "^8.4.24",
         "postcss-import": "^15.1.0",
         "postcss-preset-env": "^8.0.1",
@@ -111,6 +112,8 @@
         "@swup/body-class-plugin": "^3.2.0",
         "@swup/fragment-plugin": "^1.0.1",
         "@swup/head-plugin": "^2.2.0",
+        "@swup/overlay-theme": "^2.0.0",
+        "@swup/progress-plugin": "^3.2.0",
         "swiper": "^11.0.5",
         "swup": "^4.6.1",
         "tocbot": "^4.25.0"

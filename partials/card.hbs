@@ -1,7 +1,7 @@
 {{!--
 Default post card
 --}}
-<article class="wl-card {{post_class}} {{custom_class}}">
+<article class="wl-card {{post_class}} {{custom_class}}" style="--index: {{@key}};">
     <a class="wl-card-link" href="{{url}}">
         {{#if feature_image}}
             <picture class="wl-card-picture ">
@@ -55,7 +55,7 @@ Default post card
                 {{> "post-tag" }}
                 <span class="wl-card-time">
                     <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY년 MMM Do"}}</time>
-                    <span class="bull">&bull;</span>{{reading_time}}
+                    <span class="bull">&bull;</span> {{reading_time minute=(t '1 min read') minutes=(t "% min read")}}
                 </span>
             </span>
             {{/if}}

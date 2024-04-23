@@ -2,21 +2,21 @@
 import '../css/app.css';
 
 // Import JS
-import setupMenu from './utils/setupMenu';
-import setupPagination from './utils/setupPagination';
-import setupPost from './utils/setupPost';
-import setupSwiper from './utils/setupSwiper';
-import setupSwup from './utils/setupSwup';
+import setupLetter from './hooks/setupLetter';
+import setupMenu from './hooks/setupMenu';
+import setupPagination from './hooks/setupPagination';
+import setupPost from './hooks/setupPost';
+import setupSwiper from './hooks/setupSwiper';
+import setupSwup from './hooks/setupSwup';
 
 // On load
-
 const onLoad = () => {
     setupMenu();
     setupSwiper();
     setupSwup();
     setupPost(false);
     setupPagination();
+    setupLetter();
 };
 
-// document.addEventListener('DOMContentLoaded', onLoad);
-onLoad();
+document.addEventListener('DOMContentLoaded', onLoad);

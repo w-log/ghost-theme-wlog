@@ -1,64 +1,29 @@
-html.is-changing .transition-fade {
-    transition: opacity 0.25s;
-    opacity: 1;
+html.is-changing {
+    pointer-events: none;
+    cursor: wait;
 }
 
-html.is-animating .transition-fade {
-    opacity: 0;
-}
-
-#post.is-changing {
-    transition:
-        transform 500ms,
-        opacity 500ms;
-    transform: translateY(0);
-    opacity: 1;
-}
-
-#post.to-open-post.is-animating {
-    transform: translateY(100%);
-    opacity: 0;
-}
-
-#post.to-close-post.is-animating {
-    opacity: 0;
-    transform: translateY(0);
-}
-
-#post-content.is-changing {
-    transition:
-        opacity 200ms,
-        transform 200ms;
-}
-
-#post-content.to-next {
-    --direction: 1;
-}
-
-#post-content.to-previous {
-    --direction: -1;
-}
-
-#post-content.is-animating {
-    opacity: 0;
-    transform: translateX(calc(40px * var(--direction)));
-}
-
-#post-content.is-leaving {
-    transform: translateX(calc(40px * var(--direction) * -1));
+.swup-progress-bar {
+    z-index: 10000;
+    height: 4px;
+    background: var(--color-secondary);
 }
 
 #category-post-list.is-changing {
     --duration-leave: 150ms;
     --duration-enter: 400ms;
+    --delay: 50ms;
+    transition-delay: calc(var(--delay) * var(--post-length, 0));
     transition-duration: var(--duration-enter);
 }
 
 #category-post-list.is-leaving {
     transition-duration: var(--duration-leave);
 }
+
 #category-post-list.is-changing .wl-card {
     transition-property: opacity, transform;
+    transition-delay: calc(var(--delay) * var(--index, 0));
     transition-duration: var(--duration-enter);
     transition-timing-function: cubic-bezier(
         0.23,
@@ -70,11 +35,12 @@ html.is-animating .transition-fade {
 
 #category-post-list.is-animating .wl-card {
     opacity: 0;
-    transform: scale(0.75);
+    transform: scale(0.9);
 }
 
 /* Change easing and duration for the leave-phase */
 #category-post-list.is-leaving .wl-card {
     transition-timing-function: ease-in;
+    transition-delay: calc(var(--delay) * var(--index, 0));
     transition-duration: var(--duration-leave);
 }
