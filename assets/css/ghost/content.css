@@ -24,7 +24,7 @@
     grid-column: main-start / main-end;
 }
 
-.wl-canvas ~ .wl-canvas {
+.wl-content ~ .wl-content {
     margin-top: 8vmin;
 }
 

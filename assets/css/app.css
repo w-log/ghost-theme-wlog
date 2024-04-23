@@ -109,11 +109,11 @@ body.overflow-hidden {
 
 .wl-main-section-title {
     font-weight: bold;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.4em;
 }
 
 .wl-main-section-description {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     line-height: 1.4;
 }
 
@@ -289,6 +289,9 @@ dialog#post::backdrop {
 }
 
 @media (max-width: 768px) {
+    .wl-main-section-description {
+        font-size: 1.6rem;
+    }
     .wl-header {
         padding: 0 0 4vmin;
     }
