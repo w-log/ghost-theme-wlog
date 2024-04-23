@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.wl-sidebar + * {
+    margin-top: 0 !important;
+}
+
 .wl-toc > .toc-list {
     position: relative;
 }
