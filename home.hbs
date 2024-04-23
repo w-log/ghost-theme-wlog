@@ -8,9 +8,9 @@
             <p class="wl-main-section-description">{{@site.description}}</p>
         </section>
         <section class="wl-postfeed">
-            <h3>
+            <h2>
                 {{t "Recent articles"}}
-            </h3>
+            </h2>
             {{#get "posts" limit="3" include="tags,authors" as |posts|}}
                 {{#foreach posts}}
                     {{> "card-stack" }} {{!-- partials/card.hbs --}}

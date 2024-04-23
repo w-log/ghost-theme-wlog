@@ -307,7 +307,7 @@
 
 @media (max-width: 900px) {
     .wl-head {
-        padding: 0 var(--spacing-4);
+        padding: 0 var(--spacing-5);
     }
 
     #wl-mobile-menu {
