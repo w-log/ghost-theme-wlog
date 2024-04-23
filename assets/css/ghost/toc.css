@@ -7,7 +7,7 @@
 }
 
 .wl-sidebar {
-    margin-bottom: 6vmin;
+    margin-top: 6vmin;
 }
 
 .toc-list {
@@ -57,7 +57,7 @@ a.toc-link {
         position: absolute;
         top: 0;
         bottom: 0;
-        margin-top: 4vmin;
+        margin-top: 0;
         grid-column: wide-start / main-start; /* Place the TOC to the left of the content */
     }
 
