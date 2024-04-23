@@ -48,7 +48,7 @@
 }
 
 .wl-content [id]:not(:first-child) {
-    margin: 5vmin 0 0;
+    margin: 6vmin 0 0;
 }
 
 .wl-content > [id] + * {
