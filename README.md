@@ -5,7 +5,7 @@
 
 &nbsp;
 
-## 처음으로 Ghost 테마를 사용하시나요?
+## Ghost 테마를 처음 사용할때 참고자료
 
 1. Ghost는 테마 개발을 위해 [Handlebars](http://handlebarsjs.com/)라는 간단한 템플릿 언어를 사용합니다.
 
