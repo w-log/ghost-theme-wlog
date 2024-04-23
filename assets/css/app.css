@@ -229,6 +229,10 @@ body.overflow-hidden {
     justify-content: center;
 }
 
+.wl-social.left {
+    justify-content: flex-start;
+}
+
 .wl-social > * {
     margin: 0 var(--spacing-2);
     display: inline-flex;
