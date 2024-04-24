@@ -38,6 +38,7 @@
 -   [x] 전용 이력서 및 JD 카테고리 전용 템플릿
 -   [x] 단일 페이지 pagination 지원
 -   [x] SPA 지원
+-   [x] Codehighlight 지원
 -   [ ] Color theme custom field 지원
 -   [ ] Announcement bar 지원
 
