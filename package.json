@@ -2,7 +2,7 @@
     "name": "ghost-theme-wlog",
     "description": "Ghost based custom theme",
     "demo": "https://w-log.dev",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "engines": {
         "ghost": ">=5.0.0"
     },
