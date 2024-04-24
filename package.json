@@ -114,6 +114,7 @@
         "@swup/head-plugin": "^2.2.0",
         "@swup/overlay-theme": "^2.0.0",
         "@swup/progress-plugin": "^3.2.0",
+        "highlight.js": "^11.9.0",
         "swiper": "^11.0.5",
         "swup": "^4.6.1",
         "tocbot": "^4.25.0"

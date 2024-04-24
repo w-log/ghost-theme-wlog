@@ -1,6 +1,6 @@
 let isLoading = false;
 
-const fetchPosts = async (url) => {
+const fetchPostListHtml = async (url) => {
     const response = await fetch(url);
     const data = await response.text();
     return data;
@@ -34,7 +34,7 @@ export default function setupPagination() {
         const requestPageURL = $loadMore.dataset.nextPage;
 
         try {
-            const html = await fetchPosts(requestPageURL);
+            const html = await fetchPostListHtml(requestPageURL);
             const nextPage = appendPosts(html);
             if (!nextPage) {
                 $loadMore.remove();

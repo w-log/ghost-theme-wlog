@@ -160,6 +160,11 @@ figcaption strong {
         0 0 1px rgba(0, 0, 0, 0.4);
 }
 
+.wl-canvas > pre > code {
+    display: block;
+    margin: -16px -20px;
+}
+
 .kg-embed-card {
     display: flex;
     flex-direction: column;
