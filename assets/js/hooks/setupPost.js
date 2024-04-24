@@ -1,4 +1,5 @@
 import * as tocbot from 'tocbot';
+import hljs from 'highlight.js';
 
 // delegate 한번만 수행되도록 하는 변수
 let isSetupDelegate = false;
@@ -7,7 +8,7 @@ const GHOST_CARD_TOGGLE_SELECTOR = [
     '.kg-toggle-heading, .kg-toggle-card-icon, kg-toggle-card',
 ].join(', ');
 
-export const setupDelgate = () => {
+const setupDelgateEvent = () => {
     if (isSetupDelegate) {
         return;
     }
@@ -30,9 +31,8 @@ export const setupDelgate = () => {
 };
 
 /**
- *
+ * 글 상세 관련 스크립트
  * @param {boolean} isDelegate run delegate event flag
- * @returns
  */
 export default function setupPost(isDelegate = false) {
     const $postTemplate = document.querySelector('.post-template');
@@ -41,6 +41,7 @@ export default function setupPost(isDelegate = false) {
         return;
     }
 
+    // table of contents
     tocbot.refresh({
         // Where to render the table of contents.
         tocSelector: '.wl-toc',
@@ -52,6 +53,8 @@ export default function setupPost(isDelegate = false) {
         hasInnerContainers: true,
         // includeTitleTags: true,
     });
+    // code highlight
+    hljs.highlightAll();
 
-    if (isDelegate) setupDelgate();
+    if (isDelegate) setupDelgateEvent();
 }
