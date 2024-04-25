@@ -2,12 +2,18 @@ import { lockBodyScroll, unlockBodyScroll } from '../utils/helper';
 
 const $mobileMenu = document.getElementById('wl-mobile-menu');
 
+/**
+ * Closes the mobile menu.
+ */
 const closeMenu = () => {
     $mobileMenu.classList.remove('is-active');
     $mobileMenu.setAttribute('aria-hidden', 'true');
     unlockBodyScroll();
 };
 
+/**
+ * Opens the mobile menu and performs necessary actions.
+ */
 const openMenu = () => {
     $mobileMenu.classList.add('is-active');
     $mobileMenu.setAttribute('aria-hidden', 'false');
@@ -15,7 +21,10 @@ const openMenu = () => {
     lockBodyScroll();
 };
 
-// Toggle the menu open and close when on mobile
+/**
+ * Sets up the menu functionality.
+ * @function setupMenu
+ */
 export default function setupMenu() {
     const initialTheme = document.documentElement.getAttribute('data-theme');
 
@@ -65,6 +74,11 @@ export default function setupMenu() {
     });
 }
 
+/**
+ * Updates the active menu item based on the current pathname.
+ * @function updateActiveMenu
+ * @param {string} currentPathname - The current pathname.
+ */
 export const updateActiveMenu = (currentPathname) => {
     const $menuItems = document.querySelectorAll('.nav a');
 
@@ -76,6 +90,4 @@ export const updateActiveMenu = (currentPathname) => {
             $item.closest('[class^="nav"]')?.classList.remove('nav-current');
         }
     });
-
-    closeMenu();
 };
