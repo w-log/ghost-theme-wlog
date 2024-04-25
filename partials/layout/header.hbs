@@ -42,15 +42,15 @@
                 <span data-swup-persist="search">
                     {{search}}
                 </span>
-                <a class="wl-mobile-menu-button js-mobile-menu-toggle" role="button">
+                <button class="wl-mobile-menu-button js-mobile-menu-toggle" aria-label="open menu" >
                     {{> "icons/menu" }}
-                </a>
+                </button>
             </div>
-            <div id="wl-mobile-menu">
+            <div id="wl-mobile-menu" aria-hidden="true"  tabindex="-1">
                 <div class="wl-mobile-menu-inner">
-                    <a class="wl-mobile-menu-button js-mobile-menu-close" role="button">
+                    <button class="wl-mobile-menu-button js-mobile-menu-close" >
                         {{> "icons/close" }}
-                    </a>
+                    </button>
                     {{navigation}}
                     {{#if @site.members_enabled}}
                         {{^if @member}}
