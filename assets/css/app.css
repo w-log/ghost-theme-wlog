@@ -170,15 +170,28 @@ body.overflow-hidden {
 }
 
 .wl-feature-image {
+    position: relative;
     width: 100%;
     margin: 3rem 0 0;
     border-radius: var(--spacing-2);
     overflow: hidden;
 }
 
+.wl-feature-image::before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-bottom: 56.25%;
+}
+
 .wl-feature-image img {
     margin-inline: auto;
     width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
 }
 
 .wl-post-footer {

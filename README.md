@@ -1,6 +1,6 @@
 # Ghost theme wlog
 
-[한글 README.md](README_ko.md)
+[![한글](https://img.shields.io/badge/lang-ko--kr-green.svg)](README.ko-kr.md)
 
 A Ghost theme created for personal portfolio and blogging of developers.
 <br />
@@ -49,7 +49,9 @@ The main files are as follows:
 -   [`post.hbs`](post.hbs) - Detailed post file
 -   [`page.hbs`](page.hbs) - Detailed page file
 -   [`home.hbs`](home.hbs) - Main home page file
-    Additionally, you can create custom templates by adding the slug of the page to the template file. For example:
+
+Additionally, you can create custom templates by adding the slug of the page to the template file. For example:
+
 -   `page-about.hbs` - Custom template for the `/about/` page
 -   `tag-news.hbs` - Custom template for the `/tag/news/` archive
 -   `author-jamie.hbs` - Custom template for the `/author/jamie/` archive
