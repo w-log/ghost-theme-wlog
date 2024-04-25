@@ -4,11 +4,14 @@ const $mobileMenu = document.getElementById('wl-mobile-menu');
 
 const closeMenu = () => {
     $mobileMenu.classList.remove('is-active');
+    $mobileMenu.setAttribute('aria-hidden', 'true');
     unlockBodyScroll();
 };
 
 const openMenu = () => {
     $mobileMenu.classList.add('is-active');
+    $mobileMenu.setAttribute('aria-hidden', 'false');
+    $mobileMenu.focus();
     lockBodyScroll();
 };
 
@@ -53,10 +56,13 @@ export default function setupMenu() {
     $mobileMenuDim.addEventListener('click', closeMenu);
 
     // add state change close menu
-    window.onpopstate = () => {
-        $mobileMenu.classList.remove('is-active');
-        unlockBodyScroll();
-    };
+    window.onpopstate = closeMenu;
+
+    document.addEventListener('keyup', function (e) {
+        if (e.key === 'Escape') {
+            closeMenu();
+        }
+    });
 }
 
 export const updateActiveMenu = (currentPathname) => {
