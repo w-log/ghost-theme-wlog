@@ -5,7 +5,7 @@
         <h1 class="wl-title">{{title}}</h1>
         <span class="wl-post-meta">
             <span class="wl-post-time">
-                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY년 MMM Do"}}</time>
+                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format=(t "Date format")}}</time>
                 <span>
                     <span class="bull">&bull;</span> {{reading_time minute=(t '1 min read') minutes=(t "% min read")}}
                 </span>
@@ -93,8 +93,6 @@
         </div>
     </div>
 </aside> --}}
-
-
 
 {{#contentFor "styles"}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.css">

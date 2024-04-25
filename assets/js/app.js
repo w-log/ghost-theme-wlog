@@ -19,4 +19,9 @@ const onLoad = () => {
     setupLetter();
 };
 
-document.addEventListener('DOMContentLoaded', onLoad);
+// Run once when page loads
+if (document.readyState === 'complete') {
+    onLoad();
+} else {
+    document.addEventListener('DOMContentLoaded', () => onLoad());
+}

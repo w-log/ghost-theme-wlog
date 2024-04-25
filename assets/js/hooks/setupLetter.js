@@ -4,6 +4,10 @@ const { matches: motionOK } = window.matchMedia(
     '(prefers-reduced-motion: no-preference)',
 );
 
+/**
+ * Sets up letter animation for elements with data-split-by attribute.
+ * @returns {void}
+ */
 export default function setupLetter() {
     if (!motionOK) return;
     const splitTargets = document.querySelectorAll('[data-split-by]');

@@ -54,7 +54,7 @@ Default post card
             <span class="wl-card-meta">
                 {{> "post-tag" }}
                 <span class="wl-card-time">
-                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY년 MMM Do"}}</time>
+                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format=(t "Date format")}}</time>
                     <span class="bull">&bull;</span> {{reading_time minute=(t '1 min read') minutes=(t "% min read")}}
                 </span>
             </span>

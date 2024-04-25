@@ -1,3 +1,6 @@
+/**
+ * Sets up the Swiper slider.
+ */
 import Swiper from 'swiper';
 
 export default function setupSwiper() {

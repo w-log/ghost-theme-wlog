@@ -1,14 +1,22 @@
+/**
+ * Imports the required modules for the script.
+ */
 import * as tocbot from 'tocbot';
 import hljs from 'highlight.js';
 
-// delegate 한번만 수행되도록 하는 변수
 let isSetupDelegate = false;
 
+/**
+ * The CSS selector for the elements that trigger the toggle card functionality.
+ */
 const GHOST_CARD_TOGGLE_SELECTOR = [
     '.kg-toggle-heading, .kg-toggle-card-icon, kg-toggle-card',
 ].join(', ');
 
-const setupDelgateEvent = () => {
+/**
+ * Sets up the delegate event for the toggle card functionality.
+ */
+const setupDelegateEvent = () => {
     if (isSetupDelegate) {
         return;
     }
@@ -31,8 +39,8 @@ const setupDelgateEvent = () => {
 };
 
 /**
- * 글 상세 관련 스크립트
- * @param {boolean} isDelegate run delegate event flag
+ * Sets up the script for the post detail page.
+ * @param {boolean} isDelegate - Flag to determine whether to run the delegate event.
  */
 export default function setupPost(isDelegate = false) {
     const $postTemplate = document.querySelector('.post-template');
@@ -56,5 +64,5 @@ export default function setupPost(isDelegate = false) {
     // code highlight
     hljs.highlightAll();
 
-    if (isDelegate) setupDelgateEvent();
+    if (isDelegate) setupDelegateEvent();
 }

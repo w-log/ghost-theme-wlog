@@ -172,6 +172,8 @@ body.overflow-hidden {
 .wl-feature-image {
     width: 100%;
     margin: 3rem 0 0;
+    border-radius: var(--spacing-2);
+    overflow: hidden;
 }
 
 .wl-feature-image img {
