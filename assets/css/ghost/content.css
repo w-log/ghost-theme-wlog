@@ -44,7 +44,7 @@
 /* ---------------------------------------------------------- */
 
 .wl-content > * + * {
-    margin-top: 5vmin;
+    margin-top: 6vmin;
 }
 
 .wl-content [id]:not(:first-child) {
@@ -57,7 +57,7 @@
 
 .wl-content [id] + .kg-card,
 .wl-content blockquote + .kg-card {
-    margin-top: 5vmin;
+    margin-top: 6vmin;
 }
 
 .wl-canvas > blockquote,
@@ -78,7 +78,7 @@
 }
 
 .wl-content hr {
-    margin: 5vmin 0;
+    margin: 6vmin 0;
 }
 
 .wl-content hr + * {
@@ -118,11 +118,11 @@
 /* ---------------------------------------------------------- */
 
 .wl-content :not(.kg-card):not([id]) + .kg-card {
-    margin-top: 5vmin;
+    margin-top: 6vmin;
 }
 
 .wl-content .kg-card + :not(.kg-card) {
-    margin-top: 5vmin;
+    margin-top: 6vmin;
 }
 
 figcaption {
