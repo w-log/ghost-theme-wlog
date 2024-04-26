@@ -101,6 +101,10 @@
                 "type": "text",
                 "group": "site-wide"
             },
+            "default_feature_image": {
+                "type": "image",
+                "group": "site-wide"
+            },
             "main_title": {
                 "type": "text",
                 "group": "homepage"

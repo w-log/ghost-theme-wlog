@@ -9,24 +9,37 @@
 
 .wl-card-image {
     width: 100%;
-
     object-fit: cover;
     aspect-ratio: 1 / 1;
 }
 
+.wl-card-featured {
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    right: var(--spacing-3);
+    top: var(--spacing-3);
+    padding: var(--spacing-1) var(--spacing-2);
+    color: var(--color-primary);
+    background: var(--color-secondary);
+    gap: var(--spacing-1);
+    border-radius: 0.8rem;
+    font-weight: 500;
+}
+
+.wl-card-featured svg {
+    width: 1.8rem;
+    height: 1.8rem;
+    color: var(--color-featured);
+}
+
 .wl-card {
+    position: relative;
     --card-padding: 1.4rem;
     border-radius: 0.9rem;
     padding: var(--card-padding);
     background: var(--color-secondary);
     color: var(--color-primary);
-}
-
-.wl-card-image:first-of-type {
-    aspect-ratio: 16 / 9;
-}
-
-.wl-card.no-image .wl-card-picture {
 }
 
 .wl-card-picture {
@@ -52,6 +65,23 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.wl-card-picture.no-image p {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 2.4rem;
+    background: var(--color-primary);
+    border: 1px solid var(--color-secondary);
+    color: var(--color-secondary);
+    font-weight: 500;
+    border-radius: inherit;
 }
 
 .wl-card-meta {

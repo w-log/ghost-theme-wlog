@@ -4,50 +4,21 @@ Default post card
 <article class="wl-card {{post_class}} {{custom_class}}" style="--index: {{@key}};">
     <a class="wl-card-link" href="{{url}}">
         {{#if feature_image}}
-            <picture class="wl-card-picture ">
-              <source
-                srcset="
-                {{img_url feature_image size="xxs" format="avif"}} 30w,
-                {{img_url feature_image size="xs" format="avif"}} 100w,
-                {{img_url feature_image size="s" format="avif"}} 300w,
-                {{img_url feature_image size="m" format="avif"}} 600w,
-                {{img_url feature_image size="l" format="avif"}} 1200w,
-                {{img_url feature_image size="xl" format="avif"}} 2000w"
-                {{^if @first}}sizes="(min-width: 1200px) 1200px, 100vw)"{{else}}sizes="(min-width: 800px) 100vw, 700px"{{/if}}
-                type="image/avif"
-                {{^if @first}}loading="lazy"{{/if}}
-              >
-              <source
-                srcset="
-                {{img_url feature_image size="xxs" format="webp"}} 30w,
-                {{img_url feature_image size="xs" format="webp"}} 100w,
-                {{img_url feature_image size="s" format="webp"}} 300w,
-                {{img_url feature_image size="m" format="webp"}} 600w,
-                {{img_url feature_image size="l" format="webp"}} 1200w,
-                {{img_url feature_image size="xl" format="webp"}} 2000w"
-                {{^if @first}}sizes="(min-width: 1200px) 1200px, 100vw)"{{else}}sizes="(min-width: 800px) 100vw, 700px"{{/if}}
-                type="image/webp"
-                {{^if @first}}loading="lazy"{{/if}}
-              >
-              <img
-                srcset="
-                {{img_url feature_image size="xxs"}} 30w,
-                {{img_url feature_image size="xs"}} 100w,
-                {{img_url feature_image size="s"}} 300w,
-                {{img_url feature_image size="m"}} 600w,
-                {{img_url feature_image size="l"}} 1200w,
-                {{img_url feature_image size="xl"}} 2000w"
-                {{^if @first}}sizes="(min-width: 1200px) 1200px, 100vw)"{{else}}sizes="(min-width: 800px) 100vw, 700px"{{/if}}
-                src="{{img_url feature_image size="m"}}"
-                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                class="wl-card-image"
-                {{^if @first}}loading="lazy"{{/if}}
-              >
-            </picture>
+            {{#if feature_image_alt}}
+                {{> "feature-image" feature_image=feature_image feature_image_alt=feature_image_alt feature_picture_class="wl-card-picture" feature_image_class="wl-card-image"}}
+            {{else}}
+                {{> "feature-image" feature_image=feature_image feature_image_alt=title feature_picture_class="wl-card-picture" feature_image_class="wl-card-image"}}
+            {{/if}}
+        {{else if @custom.default_feature_image}}
+            {{> "feature-image" feature_image=@custom.default_feature_image feature_image_alt=title feature_picture_class="wl-card-picture" feature_image_class="wl-card-image" }}
         {{else}}
-            <picture class="wl-card-picture ">
+            <div class="wl-card-picture no-image">
+                <p>No Image</p>
+            </div>
+        {{/if}}
 
-            </picture>
+        {{#if featured}}
+            <span class="wl-card-featured">{{> "icons/fire"}} {{t "Featured"}}</span>
         {{/if}}
         <div class="wl-card-content">
             {{^if hide_meta}}

@@ -68,7 +68,7 @@
     font-family: var(--font-serif);
     font-weight: 400;
     font-size: 1.8rem;
-    line-height: 1.5;
+    line-height: 1.6666666667;
 }
 
 .wl-content > ul,
@@ -107,6 +107,7 @@
     .wl-canvas dl,
     .wl-canvas p {
         font-size: 1.6rem;
+        line-height: 1.625;
     }
 
     .wl-content blockquote::before {
