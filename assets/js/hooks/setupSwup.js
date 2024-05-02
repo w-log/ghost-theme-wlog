@@ -23,10 +23,7 @@ export default function setupSwup() {
     const swup = new Swup({
         containers: ['#swup'],
         cache: true,
-        linkSelector:
-            'a[href^="' +
-            window.location.origin +
-            '"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup])',
+        linkSelector: `a[href^="${window.location.origin}"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup])`,
         plugins: [
             /**
              * Adds an overlay theme to the page transitions.
