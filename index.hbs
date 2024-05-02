@@ -1,7 +1,7 @@
 {{!< default }}
 <div id="category-post-list" class="wl-page" style="--post-length: {{posts.length}};" >
     <div class="wl-container">
-        {{#get "tags" limit="all"}}
+        {{#get "tags" limit="all" include="count.posts"}}
             {{> "post-tag" all_text="All" add_class="wl-category" link_tag=true use_all=true tag=../tag}} {{!-- partials/post-tag.hbs --}}
         {{/get}}
         <div class="wl-postfeed-row">
