@@ -301,6 +301,16 @@ dialog#post::backdrop {
     opacity: 0.5;
 }
 
+/** Swiper */
+.swiper-wrapper {
+    align-items: stretch;
+}
+
+.wl-card.swiper-slide {
+    height: auto;
+    flex: 1 0 auto !important;
+}
+
 @media (max-width: 900px) {
     .wl-page {
         padding: 0 var(--spacing-4);
