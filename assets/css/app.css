@@ -308,7 +308,7 @@ dialog#post::backdrop {
 
 .wl-card.swiper-slide {
     height: auto;
-    flex: 1 0 auto !important;
+    flex: 0 1 auto !important;
 }
 
 @media (max-width: 900px) {
