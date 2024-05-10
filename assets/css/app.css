@@ -308,7 +308,7 @@ dialog#post::backdrop {
 
 .wl-card.swiper-slide {
     height: auto;
-    flex: 0 1 auto !important;
+    flex: none !important;
 }
 
 @media (max-width: 900px) {
@@ -321,9 +321,11 @@ dialog#post::backdrop {
     .wl-main-section-description {
         font-size: 1.6rem;
     }
+
     .wl-header {
         padding: 0 0 4vmin;
     }
+
     .wl-author-meta {
         font-size: 1.6rem;
     }
