@@ -157,6 +157,11 @@ figcaption strong {
         0 0 1px rgba(0, 0, 0, 0.4);
 }
 
+.kg-gallery-image {
+    background-color: var(--color-primary-100);
+    border-radius: var(--radius);
+}
+
 .wl-canvas > pre > code {
     display: block;
     margin: -16px -20px;
