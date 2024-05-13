@@ -136,12 +136,12 @@ figcaption {
     opacity: 0.8;
 }
 
-figcaption p {
+.wl-canvas figcaption p {
     font-size: inherit;
     line-height: inherit;
 }
 
-figcaption strong {
+.wl-canvas figcaption strong {
     color: var(--color-secondary);
     font-size: inherit;
     line-height: inherit;

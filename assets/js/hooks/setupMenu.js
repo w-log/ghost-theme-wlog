@@ -5,7 +5,7 @@ const $mobileMenu = document.getElementById('wl-mobile-menu');
 /**
  * Closes the mobile menu.
  */
-const closeMenu = () => {
+export const closeMenu = () => {
     $mobileMenu.classList.remove('is-active');
     $mobileMenu.setAttribute('aria-hidden', 'true');
     unlockBodyScroll();
@@ -14,7 +14,7 @@ const closeMenu = () => {
 /**
  * Opens the mobile menu and performs necessary actions.
  */
-const openMenu = () => {
+export const openMenu = () => {
     $mobileMenu.classList.add('is-active');
     $mobileMenu.setAttribute('aria-hidden', 'false');
     $mobileMenu.focus();
@@ -63,9 +63,6 @@ export default function setupMenu() {
         $close.addEventListener('click', closeMenu),
     );
     $mobileMenuDim.addEventListener('click', closeMenu);
-
-    // add state change close menu
-    window.onpopstate = closeMenu;
 
     document.addEventListener('keyup', function (e) {
         if (e.key === 'Escape') {
