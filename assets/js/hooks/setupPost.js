@@ -52,6 +52,7 @@ export default function setupPost(isDelegate = false) {
 
     // table of contents
     tocbot.refresh({
+        collapseDepth: 6,
         // Where to render the table of contents.
         tocSelector: '.wl-toc',
         // Where to grab the headings to build the table of contents.

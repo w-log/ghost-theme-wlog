@@ -1,6 +1,7 @@
 {{!< default}}
-{{#post}}
+
 <article class="wl-article {{post_class}}">
+    {{#post}}
     <header class="wl-header wl-canvas">
         <h1 class="wl-title">{{title}}</h1>
         <span class="wl-post-meta">
@@ -32,7 +33,7 @@
         <aside class="wl-sidebar"><div class="wl-toc"></div></aside>
         {{content}}
     </div>
-
+    {{/post}}
     <div class="wl-content wl-canvas">
         {{> "related-post"}}
     </div>
@@ -51,4 +52,3 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.css">
 {{/contentFor}}
 
-{{/post}}

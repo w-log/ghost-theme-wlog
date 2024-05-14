@@ -11,7 +11,7 @@ import SwupOverlayTheme from '@swup/overlay-theme';
 import setupPost from './setupPost';
 import setupSwiper from './setupSwiper';
 import setupLetter from './setupLetter';
-import { updateActiveMenu } from './setupMenu';
+import { closeMenu, updateActiveMenu } from './setupMenu';
 
 /**
  * Initializes Swup and its plugins.
@@ -69,5 +69,6 @@ export default function setupSwup() {
         setupPost(true);
         setupSwiper();
         setupLetter();
+        closeMenu();
     });
 }
