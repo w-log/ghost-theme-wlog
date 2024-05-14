@@ -13,10 +13,15 @@
                 {{t "Recent articles"}}
             </h2>
             {{#get "posts" limit="3" include="tags,authors" as |posts|}}
-                {{#foreach posts}}
-                    {{> "card-stack" }} {{!-- partials/card.hbs --}}
-                {{/foreach}}
+                {{#if posts}}
+                    {{#foreach posts}}
+                        {{> "card-stack" }} {{!-- partials/card.hbs --}}
+                    {{/foreach}}
+                {{else}}
+                    {{> "not-found"}}
+                {{/if}}
             {{/get}}
+
         </section>
         <a class="wl-button wl-button-large" href="{{@site.url}}/blog/">
             {{t "More"}}

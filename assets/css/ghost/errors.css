@@ -1,11 +1,16 @@
 /* Error Templates
 /* ---------------------------------------------------------- */
+
 .wl-error {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.wl-error-post {
+    padding: 8vmin 0;
 }
 
 .wl-error-content {

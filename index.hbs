@@ -4,11 +4,16 @@
         {{#get "tags" limit="all" include="count.posts"}}
             {{> "post-tag" all_text="All" add_class="wl-category" link_tag=true use_all=true tag=../tag}} {{!-- partials/post-tag.hbs --}}
         {{/get}}
-        <div class="wl-postfeed-row">
-        {{#foreach posts}}
-            {{> "card"}} {{!-- partials/card.hbs --}}
-        {{/foreach}}
-        </div>
+        {{#if posts}}
+            <div class="wl-postfeed-row">
+                {{#foreach posts}}
+                    {{> "card"}} {{!-- partials/card.hbs --}}
+                {{/foreach}}
+            </div>
+        {{else}}
+            {{> "not-found"}}
+        {{/if}}
+
         {{pagination}}
     </div>
 </div>
