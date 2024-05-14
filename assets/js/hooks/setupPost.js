@@ -1,6 +1,7 @@
 /**
  * Imports the required modules for the script.
  */
+import { createVideo } from '../utils/video';
 import * as tocbot from 'tocbot';
 import hljs from 'highlight.js';
 
@@ -16,7 +17,7 @@ const GHOST_CARD_TOGGLE_SELECTOR = [
 /**
  * Sets up the delegate event for the toggle card functionality.
  */
-const setupDelegateEvent = () => {
+const setupToggleDelegateEvent = () => {
     if (isSetupDelegate) {
         return;
     }
@@ -64,5 +65,7 @@ export default function setupPost(isDelegate = false) {
     // code highlight
     hljs.highlightAll();
 
-    if (isDelegate) setupDelegateEvent();
+    // ghost card video
+    createVideo();
+    if (isDelegate) setupToggleDelegateEvent();
 }
