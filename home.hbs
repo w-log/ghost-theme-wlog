@@ -4,8 +4,16 @@
 <div class="wl-page">
     <div class="wl-container">
         <section class="wl-main-section">
+            {{#if @custom.main_title}}
             <h2 class="wl-main-section-title" data-split-by="letter" data-letter-animation="hover" >{{@custom.main_title}}</h2>
+            {{else}}
+            <h2 class="wl-main-section-title" data-split-by="letter" data-letter-animation="hover" >{{@site.title}}</h2>
+            {{/if}}
+            {{#if @custom.main_description}}
+            <p class="wl-main-section-description">{{@custom.main_description}}</p>
+            {{else}}
             <p class="wl-main-section-description">{{@site.description}}</p>
+            {{/if}}
             {{> "social" align="left"}}
         </section>
         <section class="wl-postfeed">

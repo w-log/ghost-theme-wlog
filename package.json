@@ -108,6 +108,10 @@
             "main_title": {
                 "type": "text",
                 "group": "homepage"
+            },
+            "main_description": {
+                "type": "text",
+                "group": "homepage"
             }
         }
     },
