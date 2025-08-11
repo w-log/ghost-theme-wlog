@@ -14,7 +14,7 @@
         "dev": "rollup -c --environment BUILD:development -w",
         "build": "rollup -c --environment BUILD:production",
         "docker:dev": "concurrently --names 'DOCKER,ROLLUP' --prefix-colors 'yellow,magenta' --kill-others \"docker-compose up\" \"npm run dev\"",
-        "zip": "npm run build && bestzip $npm_package_name.zip assets/* partials/* members/* *.hbs package.json",
+        "zip": "npm run build && bestzip $npm_package_name.zip locales/* assets/* partials/* members/* *.hbs package.json",
         "test": "gscan .",
         "pretest": "npm run build"
     },
