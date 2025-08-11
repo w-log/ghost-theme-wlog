@@ -1,11 +1,24 @@
-version: '3'
 services:
     ghost:
         image: ghost:5.71-alpine
         container_name: ghost-app-wlog
         volumes:
-            - ./:/var/lib/ghost/content/themes/wlog:Z
-            - ./data:/var/lib/ghost/content/data/:Z
+            - ./assets:/var/lib/ghost/content/themes/wlog/assets:ro
+            - ./partials:/var/lib/ghost/content/themes/wlog/partials:ro
+            - ./members:/var/lib/ghost/content/themes/wlog/members:ro
+            - ./locales:/var/lib/ghost/content/themes/wlog/locales:ro
+            - ./author.hbs:/var/lib/ghost/content/themes/wlog/author.hbs:ro
+            - ./custom-resume-content.hbs:/var/lib/ghost/content/themes/wlog/custom-resume-content.hbs:ro
+            - ./custom-resume.hbs:/var/lib/ghost/content/themes/wlog/custom-resume.hbs:ro
+            - ./default.hbs:/var/lib/ghost/content/themes/wlog/default.hbs:ro
+            - ./error-404.hbs:/var/lib/ghost/content/themes/wlog/error-404.hbs:ro
+            - ./error.hbs:/var/lib/ghost/content/themes/wlog/error.hbs:ro
+            - ./home.hbs:/var/lib/ghost/content/themes/wlog/home.hbs:ro
+            - ./index.hbs:/var/lib/ghost/content/themes/wlog/index.hbs:ro
+            - ./page.hbs:/var/lib/ghost/content/themes/wlog/page.hbs:ro
+            - ./post.hbs:/var/lib/ghost/content/themes/wlog/post.hbs:ro
+            - ./package.json:/var/lib/ghost/content/themes/wlog/package.json:ro
+            - ./data:/var/lib/ghost/content/data:Z
         environment:
             NODE_ENV: development
             database__client: sqlite3

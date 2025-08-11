@@ -1,0 +1,32 @@
+# Git files
+.git
+.gitignore
+
+# Node modules
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Build outputs
+*.zip
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation
+*.md
+LICENSE
+
+# GitHub files
+.github
+
+# Other files
+renovate.json

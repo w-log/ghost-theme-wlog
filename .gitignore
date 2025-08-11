@@ -24,3 +24,7 @@ projectFilesBackup
 dist/
 
 assets/built/
+
+# Ghost database
+data/ghost.db
+data/ghost.db-*

@@ -1,0 +1,94 @@
+name: Build and Release Theme
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag for manual build'
+        required: false
+        default: 'manual'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run tests
+        run: npm run test
+      
+      - name: Build theme
+        run: npm run build
+      
+      - name: Create theme package
+        run: npm run zip
+      
+      - name: Get theme name and version
+        id: theme_info
+        run: |
+          THEME_NAME=$(node -p "require('./package.json').name")
+          VERSION=$(node -p "require('./package.json').version")
+          echo "theme_name=${THEME_NAME}" >> $GITHUB_OUTPUT
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "zip_file=${THEME_NAME}.zip" >> $GITHUB_OUTPUT
+      
+      - name: Rename zip with version (Release)
+        if: github.event_name == 'release'
+        run: |
+          mv ${{ steps.theme_info.outputs.zip_file }} ${{ steps.theme_info.outputs.theme_name }}-${{ github.event.release.tag_name }}.zip
+          echo "FINAL_ZIP=${{ steps.theme_info.outputs.theme_name }}-${{ github.event.release.tag_name }}.zip" >> $GITHUB_ENV
+      
+      - name: Rename zip with version (Manual)
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+          if [ "${{ github.event.inputs.version }}" != "manual" ]; then
+            mv ${{ steps.theme_info.outputs.zip_file }} ${{ steps.theme_info.outputs.theme_name }}-${{ github.event.inputs.version }}.zip
+            echo "FINAL_ZIP=${{ steps.theme_info.outputs.theme_name }}-${{ github.event.inputs.version }}.zip" >> $GITHUB_ENV
+          else
+            mv ${{ steps.theme_info.outputs.zip_file }} ${{ steps.theme_info.outputs.theme_name }}-manual-${TIMESTAMP}.zip
+            echo "FINAL_ZIP=${{ steps.theme_info.outputs.theme_name }}-manual-${TIMESTAMP}.zip" >> $GITHUB_ENV
+          fi
+      
+      - name: Upload to Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ env.FINAL_ZIP }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Upload as Artifact
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.theme_info.outputs.theme_name }}-theme
+          path: ${{ env.FINAL_ZIP }}
+          retention-days: 30
+      
+      - name: Print summary
+        run: |
+          echo "## Build Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Theme Name**: ${{ steps.theme_info.outputs.theme_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Version**: ${{ steps.theme_info.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Package**: ${{ env.FINAL_ZIP }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ github.event_name }}" == "release" ]; then
+            echo "- **Release Tag**: ${{ github.event.release.tag_name }}" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ github.event.inputs.version }}" != "" ]; then
+            echo "- **Manual Version**: ${{ github.event.inputs.version }}" >> $GITHUB_STEP_SUMMARY
+          fi
